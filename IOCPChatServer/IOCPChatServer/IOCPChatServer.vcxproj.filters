@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ChatRoom.cpp" />
+    <ClCompile Include="ChatServer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SSMonitorClient.cpp">
+      <Filter>Monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="SSMonitorClientProxy.cpp">
+      <Filter>Monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="SSMonitorServerProxy.cpp">
+      <Filter>Monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="SSMonitorStub.cpp">
+      <Filter>Monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatServerProxy.cpp">
+      <Filter>RPC</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatServerStub.cpp">
+      <Filter>RPC</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChatRoom.h" />
+    <ClInclude Include="ChatServer.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Remotable.h" />
+    <ClInclude Include="SSMonitorClient.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="SSMonitorClientProxy.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="SSMonitorPKT_TYPE.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="SSMonitorServerProxy.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="SSMonitorStub.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="MonitorProtocol.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatServerPKT_TYPE.h">
+      <Filter>RPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatServerProxy.h">
+      <Filter>RPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatServerStub.h">
+      <Filter>RPC</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonProtocol.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientSetting.json">
+      <Filter>Monitor</Filter>
+    </None>
+    <None Include="ServerSetting.json">
+      <Filter>Resource</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="RPCReferenceSSMonitor.txt">
+      <Filter>Monitor</Filter>
+    </Text>
+    <Text Include="RPCreference.txt">
+      <Filter>RPC</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Monitor">
+      <UniqueIdentifier>{fdbbe85c-d6d4-4e6b-a418-5d0f10c43fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC">
+      <UniqueIdentifier>{79d31628-e42d-4958-97a8-63adf3896ec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{b1764025-5434-4b30-944d-c12ab3318a3e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

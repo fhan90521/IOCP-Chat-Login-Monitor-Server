@@ -1,0 +1,110 @@
+﻿  CSendBuffer.cpp
+  IOCPClient.cpp
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(57,19): warning C4477: 'fprintf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'size_t'입니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(57,19): message : 서식 문자열에서 '%zd'을(를) 사용하는 것이 좋습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(114,49): warning C4805: '==': 연산에 'SHORT' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(199,48): warning C4244: '인수': 'const __int64'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(277,61): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(295,24): warning C4244: '=': 'LONG'에서 'SHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(348,38): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(533,70): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+  IOCPServer.cpp
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\DBJobQueue.h(30,46): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(56,19): warning C4477: 'fprintf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'size_t'입니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(56,19): message : 서식 문자열에서 '%zd'을(를) 사용하는 것이 좋습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(180,50): warning C4805: '==': 연산에 'SHORT' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(331,48): warning C4244: '인수': 'const __int64'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(420,63): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(438,25): warning C4244: '=': 'LONG'에서 'SHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(493,39): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(661,39): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(791,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(869,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(913,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Malloc.cpp
+  Room.cpp
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\Room.cpp(19,22): warning C4805: '==': 연산에 'char' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+  ChatRoom.cpp
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,14): warning C4099: 'Player': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ChatServer.cpp
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.h(16,39): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.h(17,29): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,120): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,145): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,141): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,151): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,147): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,138): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(108,134): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(109,129): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(110,128): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(111,144): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(112,146): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(112,142): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(113,156): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(113,152): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(114,149): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(115,150): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(116,167): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(116,159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ChatServerProxy.cpp
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(42,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(56,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(73,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(87,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(104,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(118,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(135,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(149,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(166,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(180,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(197,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(211,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+  ChatServerStub.cpp
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(16,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(32,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(49,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(66,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(82,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(100,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(114,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(130,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
+  SSMonitorClient.cpp
+  SSMonitorClientProxy.cpp
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(42,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(56,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(73,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(87,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+  SSMonitorServerProxy.cpp
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorServerProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorServerProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorServerProxy.cpp(42,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorServerProxy.cpp(56,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorServerProxy.cpp(73,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorServerProxy.cpp(87,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+  SSMonitorStub.cpp
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorStub.cpp(13,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorStub.cpp(30,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorStub.cpp(45,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorStub.cpp(61,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
+  main.cpp
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.lib 라이브러리 및 C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.exp 개체를 생성하고 있습니다.
+  코드를 생성하고 있습니다.
+  92 of 11351 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    59 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  IOCPChatServer.vcxproj -> C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.exe
