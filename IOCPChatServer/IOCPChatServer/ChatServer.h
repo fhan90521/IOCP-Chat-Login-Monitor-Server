@@ -1,8 +1,5 @@
 #pragma once
-#pragma comment (lib, "cpp_redis.lib")
-#pragma comment (lib, "tacopie.lib")
 #pragma comment (lib, "ws2_32.lib")
-#include <cpp_redis/cpp_redis>
 #include "IOCPServer.h"
 #include "ChatServerStub.h"
 #include "ChatServerProxy.h"
@@ -12,6 +9,7 @@
 #include <process.h>
 #include "PerformanceMonitor.h"
 #include "SSMonitorClient.h"
+#include "RedisManager.h"
 #define DEFAULT_SECTOR 55
 class ChatServer : public IOCPServer, public ChatServerStub, public ChatServerProxy
 {
@@ -20,16 +18,7 @@ public:
 	~ChatServer();
 	void Run() override;
 private:
-	inline thread_local static cpp_redis::client* _pRedisClient = nullptr;
-	static cpp_redis::client* GetRedisConnection()
-	{
-		if (_pRedisClient == nullptr)
-		{
-			_pRedisClient = new cpp_redis::client;
-			_pRedisClient->connect();
-		}
-		return _pRedisClient;
-	}
+	RedisManager _redisManager;
 	bool OnAcceptRequest(const char* ip, USHORT port) override;
 	void OnAccept(SessionInfo sessionInfo) override;
 	void OnDisconnect(SessionInfo sessionInfo) override;
@@ -42,7 +31,7 @@ private:
 	PerformanceMonitor _monitor;
 
 public:
-	class ChatRoom* _pRoom = nullptr;
+	SharedPtr<class ChatRoom> _pRoom = nullptr;
 	DWORD _onConnectCnt = 0;
 	void Monitor();
 

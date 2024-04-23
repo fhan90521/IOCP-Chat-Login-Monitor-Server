@@ -52,6 +52,10 @@ void ChatRoom::GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WO
     }
 }
 
+ChatRoom::ChatRoom(ChatServer* pServer):Room(pServer),_pServer(pServer)
+{
+}
+
 void ChatRoom::ReqLogin(SessionInfo _sessionInfo, INT64 _accountNo, Array<WCHAR, 20> _id, Array<WCHAR, 20> _nickName)
 {
     Remotable remotable = _guestMap[_sessionInfo.id];

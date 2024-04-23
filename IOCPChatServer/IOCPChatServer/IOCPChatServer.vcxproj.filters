@@ -63,7 +63,7 @@
     <None Include="ClientSetting.json">
       <Filter>Monitor</Filter>
     </None>
-    <None Include="ServerSetting.json">
+    <None Include="ChatServerSetting.json">
       <Filter>Resource</Filter>
     </None>
   </ItemGroup>

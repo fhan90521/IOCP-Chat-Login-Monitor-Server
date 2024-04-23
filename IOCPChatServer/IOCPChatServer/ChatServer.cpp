@@ -1,10 +1,10 @@
 #include "ChatServer.h"
-#include "Room.h"
 #include "ChatRoom.h"
 #include "Remotable.h"
 #include "MonitorProtocol.h"
 #include <iostream>
 #include <format>
+#include <MakeShared.h>
 bool ChatServer::OnAcceptRequest(const char* ip, USHORT port)
 {
     return true;
@@ -32,23 +32,16 @@ void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName, Array<char, 64>& sessionKey)
 {  
     bool bSuccess = false;
-    GetRedisConnection()->get(std::to_string(accountNo), [&sessionKey, &bSuccess](cpp_redis::reply& reply) {
+    _redisManager.GetRedisConnection()->get(std::to_string(accountNo), [&sessionKey, &bSuccess](cpp_redis::reply& reply) {
         if (reply.is_bulk_string() && memcmp(sessionKey.data(), reply.as_string().data(), 64) == 0)
         {
             bSuccess = true;
         }
-        else
-        {
-            if (reply.is_null())
-            {
-                int a = 10;
-            }
-        }
-        });
-    GetRedisConnection()->sync_commit();
+     });
+    _redisManager.GetRedisConnection()->sync_commit();
     if (bSuccess)
     {
-        _pRoom->MakeRoomJob(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
+        _pRoom->TryDoSync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
     }
     else
     {
@@ -58,17 +51,17 @@ void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arra
 
 void ChatServer::ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY)
 {
-    _pRoom->MakeRoomJob(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
+    _pRoom->TryDoSync(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
 }
 
 void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg)
 {
-    _pRoom->MakeRoomJob(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
+    _pRoom->TryDoSync(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
 }
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 {
-    _pRoom->MakeRoomJob(&ChatRoom::HeartBeat, sessionInfo);
+    _pRoom->TryDoSync(&ChatRoom::HeartBeat, sessionInfo);
 }
 
 
@@ -117,17 +110,15 @@ ResMsgTps: {}
     }
 }
 
-ChatServer::ChatServer():ChatServerProxy(this)
+ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"),_redisManager("ChatServerSetting.json")
 {
-    _pRoom = new ChatRoom(this);
-    RegisterRoom(_pRoom);
+    _pRoom = MakeShared<ChatRoom>(this);
     _monitor.AddInterface(BIND_IP);
     _monitorClient.Run();
 }
 
 ChatServer::~ChatServer()
 {
-    delete _pRoom;
 }
 
 void ChatServer::Run()

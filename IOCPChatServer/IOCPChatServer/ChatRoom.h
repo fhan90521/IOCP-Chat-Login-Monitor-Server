@@ -9,7 +9,6 @@ private:
 	virtual void OnEnter(SessionInfo sessionInfo) override;
 	virtual int RequestEnter(SessionInfo sessionInfo) override;
 	virtual void OnLeave(SessionInfo sessionInfo) override;
-	LONG _updateCnt = 0;
 	LONG _ReqMsgCnt = 0;
 	LONG _SendMsgCnt = 0;
 	DWORD _onConnectCnt = 0;
@@ -20,7 +19,7 @@ private:
 	int _playerCnt = 0;
 	void GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WORD sectorX, WORD sectorY);
 public:
-	ChatRoom(class ChatServer* pServer) :_pServer(pServer) {};
+	ChatRoom(class ChatServer* pServer);
 	void ReqLogin(SessionInfo _sessionInfo, INT64	_accountNo, Array<WCHAR, 20> _id, Array<WCHAR, 20> _nickName);
 	void ReqMessage(SessionInfo _sessionInfo, INT64 _accountNo, Vector<char> _msg);
 	void SectorMove(SessionInfo _sessionInfo, INT64 _accountNo, WORD _nextX, WORD _nextY);

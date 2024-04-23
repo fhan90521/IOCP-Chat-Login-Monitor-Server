@@ -190,7 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClientSetting.json" />
-    <None Include="ServerSetting.json" />
+    <None Include="ChatServerSetting.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

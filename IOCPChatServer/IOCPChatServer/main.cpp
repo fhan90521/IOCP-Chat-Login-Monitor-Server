@@ -2,9 +2,6 @@
 #include <memory>
 #include <vector>
 #include "ChatServer.h"
-#include "CSendBuffer.h"
-#include "Room.h"
-#include "MyNew.h"
 #include "CCrashDump.h"
 CCrashDump gCrashDump;
 int main()
