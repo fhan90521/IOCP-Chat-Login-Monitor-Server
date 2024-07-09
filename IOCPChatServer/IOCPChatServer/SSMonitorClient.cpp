@@ -7,16 +7,10 @@ void SSMonitorClient::OnConnect(SessionInfo sessionInfo)
 	return;
 }
 
-void SSMonitorClient::OnConnectFail(int error)
-{
-	Connect();
-	return;
-}
-
 void SSMonitorClient::OnDisconnect(SessionInfo sessionInfo)
 {
 	_bLoginSuccess = false;
-	Connect();
+	Connect(_sessionInfo);
 }
 
 void SSMonitorClient::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
@@ -36,14 +30,14 @@ void SSMonitorClient::ProcResLoginSS(SessionInfo sessionInfo, BYTE status)
 	}
 }
 
-SSMonitorClient::SSMonitorClient(): IOCPClient(false), SSMonitorClientProxy(this)
+SSMonitorClient::SSMonitorClient(): IOCPClient("ClientSettingFile.json",false ), SSMonitorClientProxy(this)
 {
 }
 
 void SSMonitorClient::Run()
 {
 	IOCPRun();
-	if (Connect() == false)
+	if (Connect(_sessionInfo) == false)
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "First Connect Error");
 		DebugBreak();
