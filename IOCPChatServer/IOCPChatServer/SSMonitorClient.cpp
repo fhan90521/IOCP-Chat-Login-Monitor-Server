@@ -1,16 +1,18 @@
 #include "SSMonitorClient.h"
 #include "MonitorProtocol.h"
-void SSMonitorClient::OnConnect(SessionInfo sessionInfo)
-{
-	_sessionInfo = sessionInfo;
-	ReqLoginByServer(_sessionInfo, SERVER_TYPE::CHAT_SERVER_1);
-	return;
-}
 
 void SSMonitorClient::OnDisconnect(SessionInfo sessionInfo)
 {
 	_bLoginSuccess = false;
-	Connect(_sessionInfo);
+	if (Connect(_sessionInfo) == true)
+	{
+		ReqLoginByServer(_sessionInfo, SERVER_TYPE::CHAT_SERVER_1);
+	}
+	else
+	{
+		Log::LogOnFile(Log::SYSTEM_LEVEL, "ReConnect Error");
+		DebugBreak();
+	}
 }
 
 void SSMonitorClient::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
@@ -41,5 +43,9 @@ void SSMonitorClient::Run()
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "First Connect Error");
 		DebugBreak();
+	}
+	else
+	{
+		ReqLoginByServer(_sessionInfo, SERVER_TYPE::CHAT_SERVER_1);
 	}
 }

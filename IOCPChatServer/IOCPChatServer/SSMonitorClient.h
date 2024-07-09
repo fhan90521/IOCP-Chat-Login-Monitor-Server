@@ -5,7 +5,6 @@
 class SSMonitorClient: public	IOCPClient, public SSMonitorClientProxy, public SSMonitorStub
 {
 private:
-	virtual void OnConnect(SessionInfo sessionInfo) override;
 	virtual void OnDisconnect(SessionInfo sessionInfo) override;
 	virtual void OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf) override;
 	virtual void ProcResLoginSS(SessionInfo sessionInfo, BYTE status) override;
