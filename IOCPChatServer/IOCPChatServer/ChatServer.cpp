@@ -67,7 +67,6 @@ void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 
 void ChatServer::Monitor()
 {
-    int updateCnt = _pRoom->GetUpdateCnt();
     int ProcessJobCnt = _pRoom->GetProcessedJobCnt();
     int bufAllocCnt = CSendBuffer::GetAllocCnt();
     std::cout << std::format(R"(
@@ -82,31 +81,30 @@ SendBufPool : {}
 Accept Total: {}                                   
 Accept Tps: {}
 ProcessJob Tps:{}
-Update Tps: {}
 RecvMessageTps: {}
 SendMessageTps: {}
 ReqMsgTps: {}
 ResMsgTps: {}
 
-)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<Player>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,updateCnt, GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
+)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<Player>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
     _monitor.PrintMonitorData();
     time_t currentTime;
     time(&currentTime);
     if (_monitorClient._bLoginSuccess)
     {
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_SERVER_RUN, true, currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_SERVER_CPU, _monitor.GetProcessCpuTotal(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_SERVER_MEM, _monitor.GetProcessUserMemoryByMB(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_SESSION, GetConnectingSessionCnt(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_PLAYER, _pRoom->GetPlayerCnt(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_UPDATE_TPS, ProcessJobCnt, currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_PACKET_POOL, bufAllocCnt, currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_CHAT_UPDATEMSG_POOL, _pRoom->GetJobQueueLen(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_MONITOR_CPU_TOTAL, _monitor.GetSystemCpuTotal(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_MONITOR_NONPAGED_MEMORY, _monitor.GetSystemNonPagedByMB(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_MONITOR_NETWORK_RECV, _monitor.GetInDataSizeByKB(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_MONITOR_NETWORK_SEND, _monitor.GetOutDataSizeByKB(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_MONITOR_AVAILABLE_MEMORY, _monitor.GetSystemAvailMemoryByGB() * 1000, currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SERVER_RUN, true, currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SERVER_CPU, _monitor.GetProcessCpuTotal(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SERVER_MEM, _monitor.GetProcessUserMemoryByMB(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SESSION, GetConnectingSessionCnt(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_PLAYER, _pRoom->GetPlayerCnt(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_UPDATE_TPS, ProcessJobCnt, currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_PACKET_POOL, bufAllocCnt, currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_UPDATEMSG_POOL, _pRoom->GetJobQueueLen(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_CPU_TOTAL, _monitor.GetSystemCpuTotal(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_NONPAGED_MEMORY, _monitor.GetSystemNonPagedByMB(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_NETWORK_RECV, _monitor.GetInDataSizeByKB(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_NETWORK_SEND, _monitor.GetOutDataSizeByKB(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_AVAILABLE_MEMORY, _monitor.GetSystemAvailMemoryByGB() * 1000, currentTime);
     }
 }
 

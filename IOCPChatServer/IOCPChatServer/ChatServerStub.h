@@ -3,7 +3,7 @@
 #include "CRecvBuffer.h"
 #include "MakeUnique.h"
 #include "MyStlContainer.h"
-#include "ChatServerPKT_TYPE.h"
+#include "ChatPKT_TYPE.h"
 class ChatServerStub
 {
 public:

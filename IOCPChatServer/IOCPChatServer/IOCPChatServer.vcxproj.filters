@@ -10,17 +10,14 @@
     <ClCompile Include="SSMonitorClientProxy.cpp">
       <Filter>Monitor</Filter>
     </ClCompile>
-    <ClCompile Include="SSMonitorServerProxy.cpp">
-      <Filter>Monitor</Filter>
-    </ClCompile>
-    <ClCompile Include="SSMonitorStub.cpp">
-      <Filter>Monitor</Filter>
-    </ClCompile>
     <ClCompile Include="ChatServerProxy.cpp">
       <Filter>RPC</Filter>
     </ClCompile>
     <ClCompile Include="ChatServerStub.cpp">
       <Filter>RPC</Filter>
+    </ClCompile>
+    <ClCompile Include="SSMonitorClientStub.cpp">
+      <Filter>Monitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,12 +32,6 @@
       <Filter>Monitor</Filter>
     </ClInclude>
     <ClInclude Include="SSMonitorPKT_TYPE.h">
-      <Filter>Monitor</Filter>
-    </ClInclude>
-    <ClInclude Include="SSMonitorServerProxy.h">
-      <Filter>Monitor</Filter>
-    </ClInclude>
-    <ClInclude Include="SSMonitorStub.h">
       <Filter>Monitor</Filter>
     </ClInclude>
     <ClInclude Include="MonitorProtocol.h">
@@ -58,13 +49,19 @@
     <ClInclude Include="CommonProtocol.h">
       <Filter>Resource</Filter>
     </ClInclude>
+    <ClInclude Include="SSMonitorClientStub.h">
+      <Filter>Monitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClientSetting.json">
-      <Filter>Monitor</Filter>
-    </None>
     <None Include="ChatServerSetting.json">
       <Filter>Resource</Filter>
+    </None>
+    <None Include="RPCcompiler.py">
+      <Filter>RPC</Filter>
+    </None>
+    <None Include="SSMonitorClientSetting.json">
+      <Filter>Monitor</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

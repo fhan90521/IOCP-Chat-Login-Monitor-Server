@@ -7,10 +7,10 @@
 class Field;
 struct Player: public Remotable
 {
-	INT64	_accountNo;
-	Array<WCHAR,20>	_id;				
-	Array<WCHAR,20>	_nickName;
-	WORD _sectorX;
-	WORD _sectorY;
+	INT64	accountNo;
+	Array<WCHAR,20>	id;				
+	Array<WCHAR,20>	nickName;
+	WORD sectorX;
+	WORD sectorY;
 	//Array<char,64>_sessionKey;
 };

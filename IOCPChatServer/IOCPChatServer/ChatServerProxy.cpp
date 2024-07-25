@@ -1,6 +1,6 @@
 #include  "ChatServerProxy.h"
-#include "ChatServerPKT_TYPE.h"
-void ChatServerProxy::ChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Array<char,64>& sessionKey )
+#include "ChatPKT_TYPE.h"
+void ChatServerProxy::ChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Array<char,64>& sessionKey, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -11,10 +11,10 @@ void ChatServerProxy::ChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arr
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqLogin(List<SessionInfo>& sessionInfoList, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Array<char,64>& sessionKey )
+void ChatServerProxy::ChatReqLogin(List<SessionInfo>& sessionInfoList, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Array<char,64>& sessionKey, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -27,11 +27,11 @@ void ChatServerProxy::ChatReqLogin(List<SessionInfo>& sessionInfoList, INT64 acc
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatResLogin(SessionInfo sessionInfo, BYTE status, INT64 accountNo )
+void ChatServerProxy::ChatResLogin(SessionInfo sessionInfo, BYTE status, INT64 accountNo, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -42,10 +42,10 @@ void ChatServerProxy::ChatResLogin(SessionInfo sessionInfo, BYTE status, INT64 a
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatResLogin(List<SessionInfo>& sessionInfoList, BYTE status, INT64 accountNo )
+void ChatServerProxy::ChatResLogin(List<SessionInfo>& sessionInfoList, BYTE status, INT64 accountNo, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -58,11 +58,11 @@ void ChatServerProxy::ChatResLogin(List<SessionInfo>& sessionInfoList, BYTE stat
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY )
+void ChatServerProxy::ChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -73,10 +73,10 @@ void ChatServerProxy::ChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqSectorMove(List<SessionInfo>& sessionInfoList, INT64 accountNo, WORD sectorX, WORD sectorY )
+void ChatServerProxy::ChatReqSectorMove(List<SessionInfo>& sessionInfoList, INT64 accountNo, WORD sectorX, WORD sectorY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -89,11 +89,11 @@ void ChatServerProxy::ChatReqSectorMove(List<SessionInfo>& sessionInfoList, INT6
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatResSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY )
+void ChatServerProxy::ChatResSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -104,10 +104,10 @@ void ChatServerProxy::ChatResSectorMove(SessionInfo sessionInfo, INT64 accountNo
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatResSectorMove(List<SessionInfo>& sessionInfoList, INT64 accountNo, WORD sectorX, WORD sectorY )
+void ChatServerProxy::ChatResSectorMove(List<SessionInfo>& sessionInfoList, INT64 accountNo, WORD sectorX, WORD sectorY, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -120,11 +120,11 @@ void ChatServerProxy::ChatResSectorMove(List<SessionInfo>& sessionInfoList, INT6
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg )
+void ChatServerProxy::ChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -135,10 +135,10 @@ void ChatServerProxy::ChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, V
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqMessage(List<SessionInfo>& sessionInfoList, INT64 accountNo, Vector<char>& msg )
+void ChatServerProxy::ChatReqMessage(List<SessionInfo>& sessionInfoList, INT64 accountNo, Vector<char>& msg, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -151,11 +151,11 @@ void ChatServerProxy::ChatReqMessage(List<SessionInfo>& sessionInfoList, INT64 a
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatResMessage(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Vector<char>& msg )
+void ChatServerProxy::ChatResMessage(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Vector<char>& msg, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -166,10 +166,10 @@ void ChatServerProxy::ChatResMessage(SessionInfo sessionInfo, INT64 accountNo, A
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatResMessage(List<SessionInfo>& sessionInfoList, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Vector<char>& msg )
+void ChatServerProxy::ChatResMessage(List<SessionInfo>& sessionInfoList, INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Vector<char>& msg, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -182,11 +182,11 @@ void ChatServerProxy::ChatResMessage(List<SessionInfo>& sessionInfoList, INT64 a
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqHeartbeat(SessionInfo sessionInfo )
+void ChatServerProxy::ChatReqHeartbeat(SessionInfo sessionInfo, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -197,10 +197,10 @@ void ChatServerProxy::ChatReqHeartbeat(SessionInfo sessionInfo )
 	catch(int useSize)
 	{
 	}
-	_pServer->Unicast(sessionInfo, pBuf);
+	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void ChatServerProxy::ChatReqHeartbeat(List<SessionInfo>& sessionInfoList )
+void ChatServerProxy::ChatReqHeartbeat(List<SessionInfo>& sessionInfoList, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -213,7 +213,7 @@ void ChatServerProxy::ChatReqHeartbeat(List<SessionInfo>& sessionInfoList )
 	}
 	for(SessionInfo sessionInfo: sessionInfoList)
 	{
-		_pServer->Unicast(sessionInfo, pBuf);
+		_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	}
 	pBuf->DecrementRefCnt();
 }

@@ -2,28 +2,28 @@
 #include "Session.h"
 struct Remotable
 {
-	SessionInfo _sessionInfo;
-	ULONGLONG _prevHeartBeat;
-	ULONGLONG _timeOutInterval;
+	SessionInfo sessionInfo;
+	ULONGLONG prevHeartBeat;
+	ULONGLONG timeOutInterval;
 	Remotable(SessionInfo sessionInfo, ULONGLONG curTime, ULONGLONG timeOutInterval)
 	{
-		_sessionInfo = sessionInfo;
-		_prevHeartBeat = curTime;
-		_timeOutInterval = timeOutInterval;
+		sessionInfo = sessionInfo;
+		prevHeartBeat = curTime;
+		timeOutInterval = timeOutInterval;
 	}
 	Remotable()
 	{ 
-		_sessionInfo.id = 0;
-		_prevHeartBeat = 0;
-		_timeOutInterval = 0;
+		sessionInfo.id = 0;
+		prevHeartBeat = 0;
+		timeOutInterval = 0;
 	}
-	void SetTimeOut(ULONGLONG timeOutInterval)
+	void SetTimeOut(ULONGLONG Interval)
 	{
-		_timeOutInterval = timeOutInterval;
+		timeOutInterval = Interval;
 	}
 	bool isTimeOut(ULONGLONG curTime)
 	{
-		if (curTime - _prevHeartBeat > _timeOutInterval)
+		if (curTime - prevHeartBeat > timeOutInterval)
 		{
 			return true;
 		}

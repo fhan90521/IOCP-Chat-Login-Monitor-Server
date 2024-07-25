@@ -1,14 +1,12 @@
 #pragma once
-#include "Room.h"
+#include "JobQueue.h"
 #include "Remotable.h"
-class ChatRoom :public Room
+class ChatRoom :public JobQueue
 {
 private:
 	class ChatServer* _pServer=nullptr;
-	virtual void Update() override {} ;
-	virtual void OnEnter(SessionInfo sessionInfo) override;
-	virtual int RequestEnter(SessionInfo sessionInfo) override;
-	virtual void OnLeave(SessionInfo sessionInfo) override;
+	virtual void OnEnter(SessionInfo sessionInfo);
+	virtual void OnLeave(SessionInfo sessionInfo);
 	LONG _ReqMsgCnt = 0;
 	LONG _SendMsgCnt = 0;
 	DWORD _onConnectCnt = 0;
@@ -20,10 +18,12 @@ private:
 	void GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WORD sectorX, WORD sectorY);
 public:
 	ChatRoom(class ChatServer* pServer);
-	void ReqLogin(SessionInfo _sessionInfo, INT64	_accountNo, Array<WCHAR, 20> _id, Array<WCHAR, 20> _nickName);
-	void ReqMessage(SessionInfo _sessionInfo, INT64 _accountNo, Vector<char> _msg);
-	void SectorMove(SessionInfo _sessionInfo, INT64 _accountNo, WORD _nextX, WORD _nextY);
-	void HeartBeat(SessionInfo _sessionInfo);
+	void EnterRoom(SessionInfo sessionInfo);
+	void LeaveRoom(SessionInfo sessionInfo);
+	void ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName);
+	void ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char> msg);
+	void SectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD nextX, WORD nextY);
+	void HeartBeat(SessionInfo sessionInfo);
 	int GetPlayerCnt() { return _playerCnt; }
 
 	int GetReqMsgCnt()

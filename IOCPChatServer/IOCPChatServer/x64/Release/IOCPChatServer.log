@@ -1,66 +1,92 @@
-﻿  IOCPClient.cpp
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(95,49): warning C4805: '==': 연산에 'SHORT' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(179,48): warning C4244: '인수': 'const __int64'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(257,61): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(275,24): warning C4244: '=': 'LONG'에서 'SHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(328,38): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPClient.cpp(496,70): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-  IOCPServer.cpp
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(146,50): warning C4805: '==': 연산에 'SHORT' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(297,48): warning C4244: '인수': 'const __int64'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(385,63): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(403,25): warning C4244: '=': 'LONG'에서 'SHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(458,39): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\IOCPServer.cpp(624,39): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-  JobQueue.cpp
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\JobQueue.cpp(52,48): warning C4805: '==': 연산에 'char' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
-  Room.cpp
-  RoomManager.cpp
-  ChatRoom.cpp
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,14): warning C4099: 'Player': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  ChatRoom.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,14): warning C4099: 'Player': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.cpp(102,40): warning C4244: '+=': 'unsigned __int64'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   ChatServer.cpp
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.h(15,39): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.h(16,29): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,120): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(98,145): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(98,141): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(99,151): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(99,147): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(100,138): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(101,134): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(102,129): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,128): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,144): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,146): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,142): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,156): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,152): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,149): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(108,150): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(109,167): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(109,159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.h(13,39): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatRoom.h(14,29): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(95,91): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,116): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,112): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,122): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,118): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(98,109): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(99,105): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(100,100): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(101,99): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(102,115): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,117): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,113): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,127): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,123): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,120): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,121): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,138): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,130): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ChatServerProxy.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(42,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(56,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(73,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(87,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(104,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(118,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(135,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(149,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(166,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(180,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(197,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(211,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(155,18): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(133,55): message : 컴파일되는 함수 템플릿 인스턴스화 'CSendBuffer &CSendBuffer::operator <<<char,void>(const std::vector<char,PoolAllocatorForSTL<char>> &)'에 대한 참조를 확인하세요.
+  ChatServerStub.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(16,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(32,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(49,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(66,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(82,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(100,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(114,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(130,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
   SSMonitorClient.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   SSMonitorClientProxy.cpp
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(42,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(56,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(73,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(87,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(39,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+  SSMonitorClientStub.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(12,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(29,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(44,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(60,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
   main.cpp
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-     C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.lib 라이브러리 및 C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.exp 개체를 생성하고 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다.
-  79 of 11454 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  2 of 11273 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    59 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  IOCPChatServer.vcxproj -> C:\Users\ghkdd\Desktop\Procademy\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.exe
+  IOCPChatServer.vcxproj -> C:\Users\sik\Desktop\UE5_Practice\IOCPChatServer\IOCPChatServer\x64\Release\IOCPChatServer.exe

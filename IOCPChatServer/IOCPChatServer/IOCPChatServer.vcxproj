@@ -87,8 +87,8 @@
     <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
+    <LibraryPath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
     <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -156,6 +156,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>python ./RPCcompiler.py ./RPCReferenceSSMonitor.txt SSMonitor
+python ./RPCcompiler.py ./RPCReference.txt Chat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ChatRoom.cpp" />
@@ -165,8 +169,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SSMonitorClient.cpp" />
     <ClCompile Include="SSMonitorClientProxy.cpp" />
-    <ClCompile Include="SSMonitorServerProxy.cpp" />
-    <ClCompile Include="SSMonitorStub.cpp" />
+    <ClCompile Include="SSMonitorClientStub.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChatRoom.h" />
@@ -180,17 +183,17 @@
     <ClInclude Include="Remotable.h" />
     <ClInclude Include="SSMonitorClient.h" />
     <ClInclude Include="SSMonitorClientProxy.h" />
+    <ClInclude Include="SSMonitorClientStub.h" />
     <ClInclude Include="SSMonitorPKT_TYPE.h" />
-    <ClInclude Include="SSMonitorServerProxy.h" />
-    <ClInclude Include="SSMonitorStub.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="RPCreference.txt" />
     <Text Include="RPCReferenceSSMonitor.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClientSetting.json" />
     <None Include="ChatServerSetting.json" />
+    <None Include="RPCcompiler.py" />
+    <None Include="SSMonitorClientSetting.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

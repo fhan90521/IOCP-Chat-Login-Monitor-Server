@@ -1,12 +1,12 @@
 #include "SSMonitorClient.h"
 #include "MonitorProtocol.h"
 
-void SSMonitorClient::OnDisconnect(SessionInfo sessionInfo)
+void SSMonitorClient::OnDisconnect()
 {
 	_bLoginSuccess = false;
-	if (Connect(_sessionInfo) == true)
+	if (Connect() == true)
 	{
-		ReqLoginByServer(_sessionInfo, SERVER_TYPE::CHAT_SERVER_1);
+		ReqLoginByServer(SERVER_TYPE::CHAT_SERVER_1);
 	}
 	else
 	{
@@ -15,16 +15,16 @@ void SSMonitorClient::OnDisconnect(SessionInfo sessionInfo)
 	}
 }
 
-void SSMonitorClient::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
+void SSMonitorClient::OnRecv(CRecvBuffer& buf)
 {
-	if (PacketProc(sessionInfo,buf) == false)
+	if (PacketProc(buf) == false)
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "Monitor Client Packet Proc Error");
-		Disconnect(sessionInfo);
+		Disconnect();
 	}
 }
 
-void SSMonitorClient::ProcResLoginSS(SessionInfo sessionInfo, BYTE status)
+void SSMonitorClient::ProcResLoginSS(BYTE status)
 {
 	if (status == dfMONITOR_TOOL_LOGIN_OK)
 	{
@@ -32,20 +32,20 @@ void SSMonitorClient::ProcResLoginSS(SessionInfo sessionInfo, BYTE status)
 	}
 }
 
-SSMonitorClient::SSMonitorClient(): IOCPClient("ClientSettingFile.json",false ), SSMonitorClientProxy(this)
+SSMonitorClient::SSMonitorClient(): IOCPClient("SSMonitorClientSetting.json",false ), SSMonitorClientProxy(this)
 {
 }
 
 void SSMonitorClient::Run()
 {
 	IOCPRun();
-	if (Connect(_sessionInfo) == false)
+	if (Connect() == false)
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "First Connect Error");
 		DebugBreak();
 	}
 	else
 	{
-		ReqLoginByServer(_sessionInfo, SERVER_TYPE::CHAT_SERVER_1);
+		ReqLoginByServer(SERVER_TYPE::CHAT_SERVER_1);
 	}
 }
