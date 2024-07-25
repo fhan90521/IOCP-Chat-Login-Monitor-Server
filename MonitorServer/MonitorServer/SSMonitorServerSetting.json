@@ -1,0 +1,20 @@
+{
+  "IOCP_THREAD_NUM": 2,
+  "CONCURRENT_THREAD_NUM": 1,
+
+  "BIND_IP": "127.0.0.1",
+
+  "BIND_PORT": 12345,
+
+  "SESSION_MAX": 10,
+
+  "PACKET_CODE": 109,
+  "PACKET_KEY": 30,
+  "LOG_LEVEL": 0,
+
+  "DB_PASSWORD": "1234",
+  "DB_SCHEMA": "logdb",
+
+  "DB_IP": "127.0.0.1",
+  "DB_USER": "root"
+}

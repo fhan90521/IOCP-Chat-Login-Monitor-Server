@@ -1,0 +1,14 @@
+{
+  "IOCP_THREAD_NUM": 10,
+  "CONCURRENT_THREAD_NUM": 1,
+
+  "BIND_IP": "0.0.0.0",
+
+  "BIND_PORT": 12201,
+
+  "SESSION_MAX": 100,
+
+  "PACKET_CODE": 109,
+  "PACKET_KEY": 30,
+  "LOG_LEVEL": 0
+}
