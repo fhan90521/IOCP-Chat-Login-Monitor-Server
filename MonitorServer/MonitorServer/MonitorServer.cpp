@@ -25,8 +25,12 @@ void MonitorServer::OnAccept(SessionInfo sessionInfo)
 void MonitorServer::OnDisconnect(SessionInfo sessionInfo)
 {
     AcquireSRWLockExclusive(&_serverNoLock);
-    _severNoSet.erase(_serverNoMap[sessionInfo.id]);
-    _serverNoMap.erase(sessionInfo.id);
+    auto iter = _serverNoMap.find(sessionInfo.id);
+    if (iter != _serverNoMap.end())
+    {
+        _severNoSet.erase(iter->second);
+        _serverNoMap.erase(iter);
+    }
     ReleaseSRWLockExclusive(&_serverNoLock);
 }
 
