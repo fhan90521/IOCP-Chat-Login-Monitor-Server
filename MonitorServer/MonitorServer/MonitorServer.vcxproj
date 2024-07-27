@@ -72,23 +72,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
+    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary</ReferencePath>
     <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
+    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary</ReferencePath>
     <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
+    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary</ReferencePath>
     <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ReferencePath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary</ReferencePath>
+    <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(ReferencePath);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

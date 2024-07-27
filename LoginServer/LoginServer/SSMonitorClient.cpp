@@ -6,7 +6,7 @@ void SSMonitorClient::OnDisconnect()
 	_bLoginSuccess = false;
 	if (Connect() == true)
 	{
-		ReqLoginByServer(SERVER_TYPE::CHAT_SERVER_1);
+		ReqLoginByServer(SERVER_TYPE::LOGIN_SERVER_1);
 	}
 	else
 	{
@@ -46,6 +46,6 @@ void SSMonitorClient::Run()
 	}
 	else
 	{
-		ReqLoginByServer(SERVER_TYPE::CHAT_SERVER_1);
+		ReqLoginByServer(SERVER_TYPE::LOGIN_SERVER_1);
 	}
 }

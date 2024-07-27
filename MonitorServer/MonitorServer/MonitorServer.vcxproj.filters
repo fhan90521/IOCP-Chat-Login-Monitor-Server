@@ -27,13 +27,7 @@
     <ClCompile Include="CSMonitorServer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CSMonitorClientProxy.cpp">
-      <Filter>RPC</Filter>
-    </ClCompile>
     <ClCompile Include="CSMonitorServerProxy.cpp">
-      <Filter>RPC</Filter>
-    </ClCompile>
-    <ClCompile Include="CSMonitorStub.cpp">
       <Filter>RPC</Filter>
     </ClCompile>
     <ClCompile Include="SSMonitorClientProxy.cpp">
@@ -42,8 +36,11 @@
     <ClCompile Include="SSMonitorServerProxy.cpp">
       <Filter>RPC</Filter>
     </ClCompile>
-    <ClCompile Include="SSMonitorStub.cpp">
-      <Filter>RPC</Filter>
+    <ClCompile Include="CSMonitorServerStub.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SSMonitorServerStub.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,16 +53,10 @@
     <ClInclude Include="CSMonitorServer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CSMonitorClientProxy.h">
-      <Filter>RPC</Filter>
-    </ClInclude>
     <ClInclude Include="CSMonitorPKT_TYPE.h">
       <Filter>RPC</Filter>
     </ClInclude>
     <ClInclude Include="CSMonitorServerProxy.h">
-      <Filter>RPC</Filter>
-    </ClInclude>
-    <ClInclude Include="CSMonitorStub.h">
       <Filter>RPC</Filter>
     </ClInclude>
     <ClInclude Include="SSMonitorClientProxy.h">
@@ -77,8 +68,11 @@
     <ClInclude Include="SSMonitorServerProxy.h">
       <Filter>RPC</Filter>
     </ClInclude>
-    <ClInclude Include="SSMonitorStub.h">
-      <Filter>RPC</Filter>
+    <ClInclude Include="CSMonitorServerStub.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SSMonitorServerStub.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

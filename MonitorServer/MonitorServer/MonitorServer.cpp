@@ -28,8 +28,10 @@ void MonitorServer::OnDisconnect(SessionInfo sessionInfo)
     auto iter = _serverNoMap.find(sessionInfo.id);
     if (iter != _serverNoMap.end())
     {
-        _severNoSet.erase(iter->second);
+        int serverNo = iter->second;
+        _severNoSet.erase(serverNo);
         _serverNoMap.erase(iter);
+        delete _monitorDatasMap[serverNo];
     }
     ReleaseSRWLockExclusive(&_serverNoLock);
 }
