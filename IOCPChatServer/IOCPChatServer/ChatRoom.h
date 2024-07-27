@@ -1,12 +1,11 @@
 #pragma once
 #include "JobQueue.h"
 #include "Remotable.h"
+#include <mutex>
 class ChatRoom :public JobQueue
 {
 private:
 	class ChatServer* _pServer=nullptr;
-	virtual void OnEnter(SessionInfo sessionInfo);
-	virtual void OnLeave(SessionInfo sessionInfo);
 	LONG _ReqMsgCnt = 0;
 	LONG _SendMsgCnt = 0;
 	DWORD _onConnectCnt = 0;
@@ -17,9 +16,9 @@ private:
 	int _playerCnt = 0;
 	void GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WORD sectorX, WORD sectorY);
 public:
+	void OnEnter(SessionInfo sessionInfo);
+	void OnLeave(SessionInfo sessionInfo);
 	ChatRoom(class ChatServer* pServer);
-	void EnterRoom(SessionInfo sessionInfo);
-	void LeaveRoom(SessionInfo sessionInfo);
 	void ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName);
 	void ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char> msg);
 	void SectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD nextX, WORD nextY);

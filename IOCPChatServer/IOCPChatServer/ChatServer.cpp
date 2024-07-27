@@ -13,12 +13,12 @@ bool ChatServer::OnAcceptRequest(const char* ip, USHORT port)
 void ChatServer::OnAccept(SessionInfo sessionInfo)
 {
     _onConnectCnt++;
-    _pRoom->EnterRoom(sessionInfo);
+    _pRoom->TryDoSync(&ChatRoom::OnEnter,sessionInfo);
 }
 
 void ChatServer::OnDisconnect(SessionInfo sessionInfo)
 {
-    _pRoom->LeaveRoom(sessionInfo);
+    _pRoom->TryDoSync(&ChatRoom::OnLeave,sessionInfo);
 }
 
 void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)

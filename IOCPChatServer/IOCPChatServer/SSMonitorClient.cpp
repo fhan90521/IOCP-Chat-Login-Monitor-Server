@@ -1,6 +1,6 @@
 #include "SSMonitorClient.h"
 #include "MonitorProtocol.h"
-
+#include "Log.h"
 void SSMonitorClient::OnDisconnect()
 {
 	_bLoginSuccess = false;
@@ -29,6 +29,11 @@ void SSMonitorClient::ProcResLoginSS(BYTE status)
 	if (status == dfMONITOR_TOOL_LOGIN_OK)
 	{
 		_bLoginSuccess = true;
+	}
+	else
+	{
+
+		Log::LogOnFile(Log::SYSTEM_LEVEL,"Monitor Login Error%d\n", status);
 	}
 }
 

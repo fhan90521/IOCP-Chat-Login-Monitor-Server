@@ -50,17 +50,6 @@ void ChatRoom::GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WO
 ChatRoom::ChatRoom(ChatServer* pServer):JobQueue(pServer),_pServer(pServer)
 {
 }
-
-void ChatRoom::EnterRoom(SessionInfo sessionInfo)
-{
-    OnEnter(sessionInfo);
-}
-
-void ChatRoom::LeaveRoom(SessionInfo sessionInfo)
-{
-    OnLeave(sessionInfo);
-}
-
 void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName)
 {
     _guestMap.erase(sessionInfo.id);
