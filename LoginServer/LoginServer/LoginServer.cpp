@@ -18,7 +18,6 @@ void LoginServer::OnAccept(SessionInfo sessionInfo)
 
 void LoginServer::OnDisconnect(SessionInfo sessionInfo)
 {
-	int a = 10;
 	return;
 }
 
@@ -37,21 +36,21 @@ void LoginServer::Run()
 
 void LoginServer::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
-	MYSQL* DBconnection = _accountDB.GetDBConnection();
+	MYSQL* DBconnection = _accountDB.GetConnection();
 	char getAccountInfoQuery[512];
-	DBManager::MakeQuery(getAccountInfoQuery, 512, "SELECT* FROM accountdb.account where accountno = %d", accountNo);
+	MYSQLHelper::MakeQuery(getAccountInfoQuery, 512, "SELECT* FROM accountdb.account where accountno = %d", accountNo);
 	int queryStat = mysql_query(DBconnection, getAccountInfoQuery);
 	if (queryStat != 0)
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s\n", mysql_error(DBconnection));
-		_accountDB.CloseDBConnection();
+		_accountDB.CloseConnection();
 		for (int i = 0; i < 1; i++)
 		{
-			if (_accountDB.ConnectDB() == true&& mysql_query(DBconnection= _accountDB.GetDBConnection(), getAccountInfoQuery)==0)
+			if (_accountDB.Connect() == true&& mysql_query(DBconnection= _accountDB.GetConnection(), getAccountInfoQuery)==0)
 			{
 				break;
 			}
-			_accountDB.CloseDBConnection();
+			_accountDB.CloseConnection();
 		}
 	}
 
@@ -76,7 +75,7 @@ void LoginServer::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<c
 	}
 	String ip;
 	GetClientIp(sessionInfo, ip);
-	ResLogin(sessionInfo, accountNo, dfLOGIN_STATUS_OK, userId, userNick, _gameServerIpArr, _gameServerPort, _chatServerIpArr	, _chatServerPort);
+	ResLogin(sessionInfo, accountNo, dfLOGIN_STATUS_OK, userId, userNick, _gameServerIpArr, _gameServerPort, _chatServerIpArr, _chatServerPort, true);
 	InterlockedIncrement(&_procLoginReqCnt);
 }
 
@@ -99,12 +98,12 @@ _reservList size : {}
 	time(&currentTime);
 	if (_monitorClient._bLoginSuccess)
 	{
-		_monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_LOGIN_SERVER_RUN, true, currentTime);
-		_monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_LOGIN_SERVER_CPU, _monitor.GetProcessCpuTotal(), currentTime);
-		_monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_LOGIN_SERVER_MEM, _monitor.GetProcessUserMemoryByMB(), currentTime);
-		_monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_LOGIN_SESSION, GetConnectingSessionCnt(), currentTime);
-		_monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_LOGIN_AUTH_TPS, GetProcLoginReqCnt(), currentTime);
-		_monitorClient.MonitorServerDataUpdate(_monitorClient._sessionInfo, dfMONITOR_DATA_TYPE_LOGIN_PACKET_POOL, bufAllocCnt, currentTime);
+		_monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_LOGIN_SERVER_RUN, true, currentTime);
+		_monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_LOGIN_SERVER_CPU, _monitor.GetProcessCpuTotal(), currentTime);
+		_monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_LOGIN_SERVER_MEM, _monitor.GetProcessUserMemoryByMB(), currentTime);
+		_monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_LOGIN_SESSION, GetConnectingSessionCnt(), currentTime);
+		_monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_LOGIN_AUTH_TPS, GetProcLoginReqCnt(), currentTime);
+		_monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_LOGIN_PACKET_POOL, bufAllocCnt, currentTime);
 	}
 }
 

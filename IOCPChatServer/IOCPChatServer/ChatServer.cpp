@@ -61,7 +61,7 @@ void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Ve
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 {
-    _pRoom->TryDoSync(&ChatRoom::HeartBeat, sessionInfo);
+
 }
 
 

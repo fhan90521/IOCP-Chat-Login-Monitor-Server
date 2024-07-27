@@ -1,11 +1,11 @@
 #pragma once
 #include "Session.h"
-#include "IOCPServer.h"
+#include "IOCPDummyClient.h"
 #include "MyStlContainer.h"
-class SSMonitorServerProxy
+class SSMonitorDummyProxy
 {
 private:
-	IOCPServer* _pServer;
+	IOCPDummyClient* _pDummy;
 public:
 	void ReqLoginByServer(SessionInfo sessionInfo, int serverNo, bool bDisconnect = false );
 	void ReqLoginByServer(List<SessionInfo>& sessionInfoList, int serverNo, bool bDisconnect = false);
@@ -16,8 +16,8 @@ public:
 	void ResLoginSS(SessionInfo sessionInfo, BYTE status, bool bDisconnect = false );
 	void ResLoginSS(List<SessionInfo>& sessionInfoList, BYTE status, bool bDisconnect = false);
 
-	SSMonitorServerProxy(IOCPServer* pServer)
+	SSMonitorDummyProxy(IOCPDummyClient* pDummy)
 	{
-		_pServer=pServer;
+		_pDummy=pDummy;
 	}
 };

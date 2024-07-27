@@ -11,7 +11,7 @@ void SSMonitorClient::OnDisconnect()
 	else
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "ReConnect Error");
-		DebugBreak();
+		//DebugBreak();
 	}
 }
 

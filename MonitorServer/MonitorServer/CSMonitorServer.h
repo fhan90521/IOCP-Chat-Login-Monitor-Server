@@ -1,8 +1,8 @@
 #pragma once
 #include "IOCPServer.h"
 #include "CSMonitorServerProxy.h"
-#include "CSMonitorStub.h"
-class CSMonitorServer: public IOCPServer, public CSMonitorServerProxy, public CSMonitorStub
+#include "CSMonitorServerStub.h"
+class CSMonitorServer: public IOCPServer, public CSMonitorServerProxy, public CSMonitorServerStub
 {
 private:
 	struct SessionStatus

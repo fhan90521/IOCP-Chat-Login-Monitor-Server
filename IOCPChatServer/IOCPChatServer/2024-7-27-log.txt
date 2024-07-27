@@ -1,0 +1,2 @@
+connect fail: 10061First Connect Errorbind() error : 10048
+bind() error : 10048

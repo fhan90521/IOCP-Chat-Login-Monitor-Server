@@ -56,7 +56,7 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems" Label="Shared" />
+    <Import Project="..\..\..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -84,8 +84,9 @@
     <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir);C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(LibraryPath);$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -170,7 +171,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>python "C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler.py" LoginServerRpcReference.txt Login</Command>
+      <Command>python ./RPCcompiler.py ./LoginServerRpcReference.txt Login</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -180,8 +181,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SSMonitorClient.cpp" />
     <ClCompile Include="SSMonitorClientProxy.cpp" />
-    <ClCompile Include="SSMonitorServerProxy.cpp" />
-    <ClCompile Include="SSMonitorStub.cpp" />
+    <ClCompile Include="SSMonitorClientStub.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonProtocol.h" />
@@ -192,17 +192,16 @@
     <ClInclude Include="MonitorProtocol.h" />
     <ClInclude Include="SSMonitorClient.h" />
     <ClInclude Include="SSMonitorClientProxy.h" />
+    <ClInclude Include="SSMonitorClientStub.h" />
     <ClInclude Include="SSMonitorPKT_TYPE.h" />
-    <ClInclude Include="SSMonitorServerProxy.h" />
-    <ClInclude Include="SSMonitorStub.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LoginServerRpcReference.txt" />
     <Text Include="RPCReferenceSSMonitor.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SSMonitorClientSetting.json" />
     <None Include="LoginServerSetting.json" />
+    <None Include="SSMonitorClientSetting.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

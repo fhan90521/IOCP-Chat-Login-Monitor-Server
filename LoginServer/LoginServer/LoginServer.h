@@ -5,12 +5,12 @@
 #include "MyStlContainer.h"
 #include "SSMonitorClient.h"
 #include "PerformanceMonitor.h"
-#include "DBManager.h"
+#include "MYSQLHelper.h"
 #include "RedisManager.h"
 class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
 {
 private:
-	DBManager _accountDB;
+	MYSQLHelper _accountDB;
 	RedisManager _loginTokenRedis;
 	Array<WCHAR, 16>_chatServerIpArr;
 	USHORT _chatServerPort;

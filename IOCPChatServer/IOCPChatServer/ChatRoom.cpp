@@ -8,7 +8,7 @@ void ChatRoom::OnEnter(SessionInfo sessionInfo)
     _onConnectCnt++;
 }
 
-void ChatRoom::OnLeave(SessionInfo sessionInfo)
+void ChatRoom::OnLeave (SessionInfo sessionInfo)
 {
     Player* pPlayer;
     auto iter = _playerMap.find(sessionInfo.id);
@@ -63,9 +63,7 @@ void ChatRoom::LeaveRoom(SessionInfo sessionInfo)
 
 void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName)
 {
-    Remotable remotable = _guestMap[sessionInfo.id];
     _guestMap.erase(sessionInfo.id);
-
     auto iter = _accountNoMap.find(accountNo);
     if (iter != _accountNoMap.end())
     {
@@ -94,44 +92,53 @@ void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 2
 
 void ChatRoom::ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char> msg)
 {
-    Player* pPlayer = _playerMap[sessionInfo.id];
-    _ReqMsgCnt++;
-    List<SessionInfo> sessionInfoList;
-    GetSessionInfoAroundSector(sessionInfoList, pPlayer->sectorX, pPlayer->sectorY);
-    _pServer->ChatResMessage(sessionInfoList, pPlayer->accountNo, pPlayer->id, pPlayer->nickName, msg);
-    _SendMsgCnt += sessionInfoList.size();
+    auto iter = _playerMap.find(sessionInfo.id);
+    if (iter != _playerMap.end())
+    {
+        Player* pPlayer = iter->second;
+        _ReqMsgCnt++;
+        List<SessionInfo> sessionInfoList;
+        GetSessionInfoAroundSector(sessionInfoList, pPlayer->sectorX, pPlayer->sectorY);
+        _pServer->ChatResMessage(sessionInfoList, pPlayer->accountNo, pPlayer->id, pPlayer->nickName, msg);
+        _SendMsgCnt += sessionInfoList.size();
+    }
+    else
+    {
+        Log::LogOnFile(Log::SYSTEM_LEVEL, "ReqMessage No player");
+    }
 }
 
 void ChatRoom::SectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD nextX, WORD nextY)
 {
-    nextX++;
-    nextY++;
-    Player* pPlayer = _playerMap[sessionInfo.id];
-    WORD prevX = pPlayer->sectorX;
-    WORD prevY = pPlayer->sectorY;
-    pPlayer->sectorX = nextX;
-    pPlayer->sectorY = nextY;
-    List<Player*>& prevSector = _sectorMap[prevY][prevX];
-    bool bFind = false;
-    if (prevX != DEFAULT_SECTOR)
+    auto iter = _playerMap.find(sessionInfo.id);
+    if (iter != _playerMap.end())
     {
-        auto iter = find_if(prevSector.begin(), prevSector.end(), [pPlayer](Player* tmp) {return tmp->accountNo == pPlayer->accountNo; });
-        if (iter == prevSector.end())
+        Player* pPlayer = iter->second;
+        nextX++;
+        nextY++;
+        WORD prevX = pPlayer->sectorX;
+        WORD prevY = pPlayer->sectorY;
+        pPlayer->sectorX = nextX;
+        pPlayer->sectorY = nextY;
+        List<Player*>& prevSector = _sectorMap[prevY][prevX];
+        bool bFind = false;
+        if (prevX != DEFAULT_SECTOR)
         {
-            Log::LogOnFile(Log::SYSTEM_LEVEL, "there is no Player in Sector accountNo: %d", pPlayer->accountNo);
+            auto iter = find_if(prevSector.begin(), prevSector.end(), [pPlayer](Player* tmp) {return tmp->accountNo == pPlayer->accountNo; });
+            if (iter == prevSector.end())
+            {
+                Log::LogOnFile(Log::SYSTEM_LEVEL, "there is no Player in Sector accountNo: %d", pPlayer->accountNo);
+            }
+            else
+            {
+                prevSector.erase(iter);
+            }
         }
-        else
-        {
-            prevSector.erase(iter);
-        }
+        _sectorMap[nextY][nextX].push_back(pPlayer);
+        _pServer->ChatResSectorMove(pPlayer->sessionInfo, accountNo, nextX, nextY);
     }
-    _sectorMap[nextY][nextX].push_back(pPlayer);
-    _pServer->ChatResSectorMove(pPlayer->sessionInfo, accountNo, nextX, nextY);
-}
-
-void ChatRoom::HeartBeat(SessionInfo sessionInfo)
-{
-    Player* pPlayer = _playerMap[sessionInfo.id];
-    pPlayer->prevHeartBeat = GetTickCount64();
-    _pServer->ChatReqHeartbeat(sessionInfo);
+    else
+    {
+        Log::LogOnFile(Log::SYSTEM_LEVEL, "ReqMessage No player");
+    }
 }

@@ -1,9 +1,9 @@
-#include  "CSMonitorStub.h"
+#include  "CSMonitorServerStub.h"
  #include "IOCPServer.h"
 #include <iostream>
 #include "Log.h"
 using namespace std;
-bool CSMonitorStub::PacketProcReqLoginByMonitorTool(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool CSMonitorServerStub::PacketProcReqLoginByMonitorTool(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	Array<char,32> loginSessionKey;
 	try
@@ -18,7 +18,7 @@ bool CSMonitorStub::PacketProcReqLoginByMonitorTool(SessionInfo sessionInfo, CRe
 	ProcReqLoginByMonitorTool( sessionInfo , loginSessionKey);
 	return true;
 }
-bool CSMonitorStub::PacketProcResLoginCS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool CSMonitorServerStub::PacketProcResLoginCS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	BYTE status;
 	try
@@ -33,7 +33,7 @@ bool CSMonitorStub::PacketProcResLoginCS(SessionInfo sessionInfo, CRecvBuffer& b
 	ProcResLoginCS( sessionInfo , status);
 	return true;
 }
-bool CSMonitorStub::PacketProcMonitorToolDataUpdate(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool CSMonitorServerStub::PacketProcMonitorToolDataUpdate(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	BYTE serverNo;
 	BYTE dataType;
@@ -52,7 +52,7 @@ bool CSMonitorStub::PacketProcMonitorToolDataUpdate(SessionInfo sessionInfo, CRe
 	return true;
 }
 
-bool CSMonitorStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool CSMonitorServerStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	short packetType;
 	try

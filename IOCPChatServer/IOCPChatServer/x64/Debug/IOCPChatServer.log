@@ -1,1 +1,141 @@
-﻿LINK : fatal error LNK1104: 'mysqlclient.lib' 파일을 열 수 없습니다.
+﻿  IOCPDummyClient.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\IOCPDummyClient.cpp(108,50): warning C4805: '==': 연산에 'SHORT' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\IOCPDummyClient.cpp(241,48): warning C4244: '인수': 'const __int64'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\IOCPDummyClient.cpp(329,63): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\IOCPDummyClient.cpp(347,25): warning C4244: '=': 'LONG'에서 'SHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\IOCPDummyClient.cpp(402,39): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\IOCPDummyClient.cpp(544,39): warning C4805: '==': 연산에 'CHAR' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+  RoomSystem.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ChatRoom.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\Player.h(8,14): warning C4099: 'Player': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatRoom.cpp(102,40): warning C4244: '+=': 'unsigned __int64'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ChatServer.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatRoom.h(13,39): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatRoom.h(14,29): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(95,91): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,116): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,112): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,122): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,118): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(98,109): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(99,105): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(100,100): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(101,99): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(102,115): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,117): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,113): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,127): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,123): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,120): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,121): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,138): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,130): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ChatServerProxy.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(42,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(56,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(73,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(87,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(104,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(118,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(135,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(149,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(166,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(180,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(197,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(211,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(155,18): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerProxy.cpp(133,55): message : 컴파일되는 함수 템플릿 인스턴스화 'CSendBuffer &CSendBuffer::operator <<<char,void>(const std::vector<char,PoolAllocatorForSTL<char>> &)'에 대한 참조를 확인하세요.
+  ChatServerStub.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(16,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(32,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(49,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(66,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(82,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(100,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(114,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(130,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
+  main.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SSMonitorClient.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SSMonitorClientProxy.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(11,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(25,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientProxy.cpp(39,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+  SSMonitorClientStub.cpp
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(12,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(29,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(44,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\IOCPChatServer\SSMonitorClientStub.cpp(60,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
+  코드를 생성하고 있습니다...
+  cpp_redis.lib(client.obj) : /GL로 컴파일한 MSIL .netmodule 또는 모듈이 있습니다. /LTCG를 지정하여 링크를 다시 시작하십시오. /LTCG를 링크 명령줄에 추가하면 링커 성능이 향상됩니다.
+LINK : warning LNK4075: '/INCREMENTAL'이(가) '/LTCG' 사양으로 인해 무시됩니다.
+cpp_redis.lib(client.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(client.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(reply.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(reply.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(redis_connection.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(redis_connection.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(sentinel.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(sentinel.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(tcp_client.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(tcp_client.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(reply_builder.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(reply_builder.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(builders_factory.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(builders_factory.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(bulk_string_builder.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(bulk_string_builder.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(error_builder.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(error_builder.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(array_builder.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(array_builder.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(integer_builder.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(integer_builder.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(simple_string_builder.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+cpp_redis.lib(simple_string_builder.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(tcp_client.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(tcp_client.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(io_service.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(io_service.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(error.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(error.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(tcp_socket.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(tcp_socket.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(windows_tcp_socket.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(windows_tcp_socket.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(thread_pool.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(thread_pool.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(windows_self_pipe.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '0' 값이 '2'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+tacopie.lib(windows_self_pipe.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MD_DynamicRelease' 값이 'MDd_DynamicDebug'(CacheTracer.obj에 위치) 값과 일치하지 않습니다.
+MSVCRTD.lib(initializers.obj) : warning LNK4098: 'msvcrt.lib' defaultlib가 다른 라이브러리와 충돌합니다. /NODEFAULTLIB:library를 사용하십시오.
+C:\Users\sik\Desktop\UE5_Practice\IOCP-Chat-Login-Monitor-Server\IOCPChatServer\x64\Debug\IOCPChatServer.exe : fatal error LNK1319: 38개의 불일치가 검색되었습니다.

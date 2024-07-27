@@ -23,7 +23,6 @@ public:
 	void ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName);
 	void ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char> msg);
 	void SectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD nextX, WORD nextY);
-	void HeartBeat(SessionInfo sessionInfo);
 	int GetPlayerCnt() { return _playerCnt; }
 
 	int GetReqMsgCnt()

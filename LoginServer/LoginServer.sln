@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoginServer", "LoginServer\LoginServer.vcxproj", "{34B1FC6C-8F2A-4677-A3A2-93DB5B6FDD75}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetworkLibrary", "..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems", "{DEEAF9C8-E3F1-4850-B9D2-03D66DBCAED0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetworkLibrary", "..\..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems", "{DEEAF9C8-E3F1-4850-B9D2-03D66DBCAED0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,7 +31,7 @@ Global
 		SolutionGuid = {D02733C5-65F2-4F92-8342-0058121CDE8F}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems*{34b1fc6c-8f2a-4677-a3a2-93db5b6fdd75}*SharedItemsImports = 4
-		..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems*{deeaf9c8-e3f1-4850-b9d2-03d66dbcaed0}*SharedItemsImports = 9
+		..\..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems*{34b1fc6c-8f2a-4677-a3a2-93db5b6fdd75}*SharedItemsImports = 4
+		..\..\NetworkLibrary\NetworkLibrary\NetworkLibrary.vcxitems*{deeaf9c8-e3f1-4850-b9d2-03d66dbcaed0}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

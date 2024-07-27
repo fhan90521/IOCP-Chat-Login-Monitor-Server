@@ -1,9 +1,8 @@
-#include  "SSMonitorStub.h"
- #include "IOCPServer.h"
-#include <iostream>
+#include  "SSMonitorClientStub.h"
+ #include <iostream>
 #include "Log.h"
 using namespace std;
-bool SSMonitorStub::PacketProcReqLoginByServer(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool SSMonitorClientStub::PacketProcReqLoginByServer(CRecvBuffer& buf)
 {
 	int serverNo;
 	try
@@ -15,10 +14,10 @@ bool SSMonitorStub::PacketProcReqLoginByServer(SessionInfo sessionInfo, CRecvBuf
 		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByServer error\n");
 		 return false;
 	}
-	ProcReqLoginByServer( sessionInfo , serverNo);
+	ProcReqLoginByServer(serverNo);
 	return true;
 }
-bool SSMonitorStub::PacketProcMonitorServerDataUpdate(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool SSMonitorClientStub::PacketProcMonitorServerDataUpdate(CRecvBuffer& buf)
 {
 	BYTE dataType;
 	int dataValue;
@@ -32,10 +31,10 @@ bool SSMonitorStub::PacketProcMonitorServerDataUpdate(SessionInfo sessionInfo, C
 		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorServerDataUpdate error\n");
 		 return false;
 	}
-	ProcMonitorServerDataUpdate( sessionInfo , dataType, dataValue, timeStamp);
+	ProcMonitorServerDataUpdate(dataType, dataValue, timeStamp);
 	return true;
 }
-bool SSMonitorStub::PacketProcResLoginSS(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool SSMonitorClientStub::PacketProcResLoginSS(CRecvBuffer& buf)
 {
 	BYTE status;
 	try
@@ -47,11 +46,11 @@ bool SSMonitorStub::PacketProcResLoginSS(SessionInfo sessionInfo, CRecvBuffer& b
 		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginSS error\n");
 		 return false;
 	}
-	ProcResLoginSS( sessionInfo , status);
+	ProcResLoginSS(status);
 	return true;
 }
 
-bool SSMonitorStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
+bool SSMonitorClientStub::PacketProc(CRecvBuffer& buf)
 {
 	short packetType;
 	try
@@ -66,17 +65,17 @@ bool SSMonitorStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
 	{
 	case PKT_TYPE_ReqLoginByServer:
 	{
-		return PacketProcReqLoginByServer(sessionInfo,buf);
+		return PacketProcReqLoginByServer(buf);
 		break;
 	}
 	case PKT_TYPE_MonitorServerDataUpdate:
 	{
-		return PacketProcMonitorServerDataUpdate(sessionInfo,buf);
+		return PacketProcMonitorServerDataUpdate(buf);
 		break;
 	}
 	case PKT_TYPE_ResLoginSS:
 	{
-		return PacketProcResLoginSS(sessionInfo,buf);
+		return PacketProcResLoginSS(buf);
 		break;
 	}
 	default:

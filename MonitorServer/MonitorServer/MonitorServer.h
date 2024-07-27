@@ -2,13 +2,13 @@
 #include "IOCPServer.h"
 #include "MyStlContainer.h"
 #include "SSMonitorServerProxy.h"
-#include "SSMonitorStub.h"
-#include "DBManager.h"
+#include "SSMonitorServerStub.h"
+#include "MYSQLHelper.h"
 #include <time.h>
-class MonitorServer :public IOCPServer, public SSMonitorServerProxy, public SSMonitorStub
+class MonitorServer :public IOCPServer, public SSMonitorServerProxy, public SSMonitorServerStub
 {
 private:
-	DBManager _logDB;
+	MYSQLHelper _logDB;
 	class CSMonitorServer* _pCSMonitorServer = nullptr;
 	HashMap<SessionInfo::ID,int> _serverNoMap;
 	HashSet<int> _severNoSet;

@@ -4,7 +4,7 @@
 #include "MakeUnique.h"
 #include "MyStlContainer.h"
 #include "SSMonitorPKT_TYPE.h"
-class SSMonitorStub
+class SSMonitorServerStub
 {
 public:
 	bool PacketProcReqLoginByServer( SessionInfo sessionInfo, CRecvBuffer& buf);

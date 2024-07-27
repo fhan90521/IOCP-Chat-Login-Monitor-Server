@@ -80,8 +80,11 @@ void MonitorServer::ProcMonitorServerDataUpdate(SessionInfo sessionInfo, BYTE da
     if (pMonitorDatas->_cnt[dataType] >= 60)
     {
         pMonitorDatas->_avg[dataType] = pMonitorDatas->_avg[dataType] / pMonitorDatas->_cnt[dataType];
-        pMonitorDatas->_cnt[dataType] = 0;
         LogOnDB(serverNo, dataType, pMonitorDatas->_avg[dataType], pMonitorDatas->_min[dataType], pMonitorDatas->_max[dataType]);
+        pMonitorDatas->_cnt[dataType] = 0;
+        pMonitorDatas->_avg[dataType] = 0;
+        pMonitorDatas->_max[dataType] = 0;
+        pMonitorDatas->_min[dataType] = INT_MAX;
     }
     ReleaseSRWLockExclusive(&pMonitorDatas->_dataLocks[dataType]);
 }
@@ -113,21 +116,21 @@ SendMessageTps: {}
 
 void MonitorServer::LogOnDB(int serverNo, int type, float avr, int min, int max)
 {
-    MYSQL* connection = _logDB.GetDBConnection();
+    MYSQL* connection = _logDB.GetConnection();
     char query[512];
-    DBManager::MakeQuery(query, 512, "INSERT INTO `logdb`.`monitorlog` (`serverNo`, `type`, `avr`, `min`, `max`) VALUES('%d', '%d', '%f', '%d','%d')", serverNo, type, avr, min, max);
+    MYSQLHelper::MakeQuery(query, 512, "INSERT INTO `logdb`.`monitorlog` (`serverNo`, `type`, `avr`, `min`, `max`) VALUES('%d', '%d', '%f', '%d','%d')", serverNo, type, avr, min, max);
     int queryStat = mysql_query(connection, query);
     if (queryStat != 0)
     {
         Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s", mysql_error(connection));
-        _logDB.CloseDBConnection();
+        _logDB.CloseConnection();
         for (int i = 0; i < 5; i++)
         {
-            if (_logDB.ConnectDB() == true&& mysql_query(_logDB.GetDBConnection(), query)==0)
+            if (_logDB.Connect() == true&& mysql_query(_logDB.GetConnection(), query)==0)
             {
                 break;
             }
-            _logDB.CloseDBConnection();
+            _logDB.CloseConnection();
         }
     }
 }

@@ -3,7 +3,7 @@
 #include "CRecvBuffer.h"
 #include "MakeUnique.h"
 #include "MyStlContainer.h"
-#include "LoginServerPKT_TYPE.h"
+#include "LoginPKT_TYPE.h"
 class LoginServerStub
 {
 public:
