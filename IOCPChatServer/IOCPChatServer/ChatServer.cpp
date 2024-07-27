@@ -1,6 +1,5 @@
 #include "ChatServer.h"
 #include "ChatRoom.h"
-#include "Remotable.h"
 #include "MonitorProtocol.h"
 #include <iostream>
 #include <format>
@@ -61,9 +60,8 @@ void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Ve
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 {
-
+    _pRoom->TryDoSync(&ChatRoom::HeartBeatCS, sessionInfo);
 }
-
 
 void ChatServer::Monitor()
 {
@@ -86,7 +84,7 @@ SendMessageTps: {}
 ReqMsgTps: {}
 ResMsgTps: {}
 
-)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<Player>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
+)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<ChatPlayer>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
     _monitor.PrintMonitorData();
     time_t currentTime;
     time(&currentTime);

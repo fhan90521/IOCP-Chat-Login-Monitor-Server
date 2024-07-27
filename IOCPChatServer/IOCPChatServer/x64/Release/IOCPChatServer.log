@@ -1,38 +1,42 @@
 ﻿  ChatRoom.cpp
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\Player.h(8,14): warning C4099: 'Player': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatPlayer.h(7,1): warning C4099: 'ChatPlayer': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatPlayer.h(6,8): message : 'ChatPlayer' 선언을 참조하십시오.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatRoom.cpp(92,44): warning C4244: '+=': 'unsigned __int64'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatSession.h(9,1): warning C4099: 'ChatSession': 처음에는 'class'을(를) 사용하여 형식 이름을 표시했는데 이제는 'struct'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatSession.h(8,8): message : 'ChatSession' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatSession.h(13,18): warning C4099: 'ChatPlayer': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatPlayer.h(6,8): message : 'ChatPlayer' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatRoom.cpp(132,44): warning C4244: '+=': 'unsigned __int64'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   ChatServer.cpp
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatRoom.h(12,39): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatRoom.h(13,29): warning C4099: 'Player': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\Player.h(8,8): message : 'Player' 선언을 참조하십시오.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(95,91): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,116): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,112): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,122): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,118): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(98,109): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(99,105): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(100,100): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(101,99): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(102,115): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,117): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,113): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,127): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,123): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,120): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(106,121): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,138): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(107,130): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatRoom.h(13,33): warning C4099: 'ChatPlayer': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatPlayer.h(6,8): message : 'ChatPlayer' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatRoom.h(14,23): warning C4099: 'ChatPlayer': 처음에는 'struct'을(를) 사용하여 형식 이름을 표시했는데 이제는 'class'을(를) 사용하여 표시합니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatPlayer.h(6,8): message : 'ChatPlayer' 선언을 참조하십시오.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(93,91): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(94,116): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(94,112): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(95,122): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(95,118): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(96,109): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(97,105): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(98,100): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(99,99): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(100,115): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(101,117): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(101,113): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(102,127): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(102,123): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(103,120): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(104,121): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,138): warning C4244: '인수': 'time_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServer.cpp(105,130): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   ChatServerProxy.cpp
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -85,8 +89,8 @@ C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다.
-  4 of 11251 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 11125 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   IOCPChatServer.vcxproj -> C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\x64\Release\IOCPChatServer.exe

@@ -1,7 +1,7 @@
 #pragma once
 #include "JobQueue.h"
-#include "Remotable.h"
 #include <mutex>
+#include <thread>
 class ChatRoom :public JobQueue
 {
 private:
@@ -9,13 +9,16 @@ private:
 	LONG _ReqMsgCnt = 0;
 	LONG _SendMsgCnt = 0;
 	DWORD _onConnectCnt = 0;
-	HashMap<SessionInfo::ID, class Player*>_playerMap;
-	HashMap<INT64, class Player*>_accountNoMap;
-	HashMap<SessionInfo::ID, Remotable>_guestMap;
-	List<Player*> _sectorMap[52][52];
+	HashMap<SessionInfo::ID, class ChatSession*>_chatSessionMap;
+	HashMap<INT64, class ChatPlayer*>_chatPlayerMap;
+	List<class ChatPlayer*> _sectorMap[52][52];
 	int _playerCnt = 0;
 	void GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WORD sectorX, WORD sectorY);
 public:
+	//실제로 더미테스트에서는 heartbeat를 쏘지 않아서 
+	//std::jthread _pushCheckHeartBeatJobThread;
+	void CheckHeartBeat();
+	void HeartBeatCS(SessionInfo sessionInfo);
 	void OnEnter(SessionInfo sessionInfo);
 	void OnLeave(SessionInfo sessionInfo);
 	ChatRoom(class ChatServer* pServer);
