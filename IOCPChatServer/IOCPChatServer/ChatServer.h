@@ -3,7 +3,7 @@
 #include "IOCPServer.h"
 #include "ChatServerStub.h"
 #include "ChatServerProxy.h"
-#include "ChatPlayer.h"
+#include "Player.h"
 #include "Session.h"
 #include "NetworkHeader.h"
 #include <process.h>

@@ -87,8 +87,8 @@
     <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ReferencePath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(ReferencePath)</ReferencePath>
+    <LibraryPath>C:\Users\sik\Desktop\UE5_Practice\NetworkLibrary\NetworkLibrary;$(LibraryPath)</LibraryPath>
     <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -177,10 +177,10 @@ python ./RPCcompiler.py ./RPCReference.txt Chat</Command>
     <ClInclude Include="ChatServerPKT_TYPE.h" />
     <ClInclude Include="ChatServerProxy.h" />
     <ClInclude Include="ChatServerStub.h" />
-    <ClInclude Include="ChatSession.h" />
     <ClInclude Include="CommonProtocol.h" />
     <ClInclude Include="MonitorProtocol.h" />
-    <ClInclude Include="ChatPlayer.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Remotable.h" />
     <ClInclude Include="SSMonitorClient.h" />
     <ClInclude Include="SSMonitorClientProxy.h" />
     <ClInclude Include="SSMonitorClientStub.h" />
