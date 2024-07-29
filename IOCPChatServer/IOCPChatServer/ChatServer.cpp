@@ -1,6 +1,5 @@
 #include "ChatServer.h"
 #include "ChatRoom.h"
-#include "Remotable.h"
 #include "MonitorProtocol.h"
 #include <iostream>
 #include <format>
@@ -31,17 +30,22 @@ void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 
 void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName, Array<char, 64>& sessionKey)
 {  
-    
-    _redisManager.GetRedisConnection()->get(std::to_string(accountNo), [this,sessionInfo,accountNo,id,nickName,sessionKey](cpp_redis::reply& reply) {
+    bool bSuccess = false;
+    _redisManager.GetRedisConnection()->get(std::to_string(accountNo), [&sessionKey, &bSuccess](cpp_redis::reply& reply) {
         if (reply.is_bulk_string() && memcmp(sessionKey.data(), reply.as_string().data(), 64) == 0)
         {
-            _pRoom->DoAsync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
+            bSuccess = true;
         }
-        else
-        {
-            Disconnect(sessionInfo);
-        }
-        });
+     });
+    _redisManager.GetRedisConnection()->sync_commit();
+    if (bSuccess)
+    {
+        _pRoom->TryDoSync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
+    }
+    else
+    {
+        Disconnect(sessionInfo);
+    }
 }
 
 void ChatServer::ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY)
@@ -56,9 +60,8 @@ void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Ve
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 {
-
+    _pRoom->TryDoSync(&ChatRoom::HeartBeatCS, sessionInfo);
 }
-
 
 void ChatServer::Monitor()
 {
@@ -81,7 +84,7 @@ SendMessageTps: {}
 ReqMsgTps: {}
 ResMsgTps: {}
 
-)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<Player>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
+)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<ChatPlayer>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
     _monitor.PrintMonitorData();
     time_t currentTime;
     time(&currentTime);
