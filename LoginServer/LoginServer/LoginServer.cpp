@@ -71,6 +71,7 @@ _reservList size : {}
 LoginServer::~LoginServer()
 {
 	CloseServer();
+	delete _loginDBJobQueue;
 }
 
 LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json")

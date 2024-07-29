@@ -10,7 +10,7 @@ class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServ
 {
 private:
 	friend class LoginDBJobQueue;
-	LoginDBJobQueue* _loginDBJobQueue;
+	class LoginDBJobQueue* _loginDBJobQueue;
 	Array<WCHAR, 16>_chatServerIpArr;
 	USHORT _chatServerPort;
 	Array<WCHAR, 16> _gameServerIpArr;
