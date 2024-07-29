@@ -39,6 +39,9 @@
     <ClCompile Include="SSMonitorClientStub.cpp">
       <Filter>Monitor</Filter>
     </ClCompile>
+    <ClCompile Include="LoginDBJobQueue.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginServer.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="SSMonitorClientStub.h">
       <Filter>Monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDBJobQueue.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

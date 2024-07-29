@@ -31,22 +31,17 @@ void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 
 void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName, Array<char, 64>& sessionKey)
 {  
-    bool bSuccess = false;
-    _redisManager.GetRedisConnection()->get(std::to_string(accountNo), [&sessionKey, &bSuccess](cpp_redis::reply& reply) {
+    
+    _redisManager.GetRedisConnection()->get(std::to_string(accountNo), [this,sessionInfo,accountNo,id,nickName,sessionKey](cpp_redis::reply& reply) {
         if (reply.is_bulk_string() && memcmp(sessionKey.data(), reply.as_string().data(), 64) == 0)
         {
-            bSuccess = true;
+            _pRoom->DoAsync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
         }
-     });
-    _redisManager.GetRedisConnection()->sync_commit();
-    if (bSuccess)
-    {
-        _pRoom->TryDoSync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
-    }
-    else
-    {
-        Disconnect(sessionInfo);
-    }
+        else
+        {
+            Disconnect(sessionInfo);
+        }
+        });
 }
 
 void ChatServer::ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY)

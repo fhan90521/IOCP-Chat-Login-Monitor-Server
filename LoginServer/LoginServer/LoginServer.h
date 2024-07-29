@@ -5,13 +5,12 @@
 #include "MyStlContainer.h"
 #include "SSMonitorClient.h"
 #include "PerformanceMonitor.h"
-#include "MYSQLHelper.h"
 #include "RedisManager.h"
 class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
 {
 private:
-	MYSQLHelper _accountDB;
-	RedisManager _loginTokenRedis;
+	friend class LoginDBJobQueue;
+	LoginDBJobQueue* _loginDBJobQueue;
 	Array<WCHAR, 16>_chatServerIpArr;
 	USHORT _chatServerPort;
 	Array<WCHAR, 16> _gameServerIpArr;
@@ -26,7 +25,6 @@ private:
 
 	PerformanceMonitor _monitor;
 	SSMonitorClient _monitorClient;
-
 	LONG _procLoginReqCnt = 0;
 public:
 	LONG GetProcLoginReqCnt()

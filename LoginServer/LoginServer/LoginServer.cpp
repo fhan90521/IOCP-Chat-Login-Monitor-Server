@@ -5,6 +5,7 @@
 #include "MonitorProtocol.h"
 #include "ParseJson.h"
 #include "Log.h"
+#include "LoginDBJobQueue.h"
 bool LoginServer::OnAcceptRequest(const char* ip, USHORT port)
 {
 	return true;
@@ -36,47 +37,7 @@ void LoginServer::Run()
 
 void LoginServer::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
-	MYSQL* DBconnection = _accountDB.GetConnection();
-	char getAccountInfoQuery[512];
-	MYSQLHelper::MakeQuery(getAccountInfoQuery, 512, "SELECT* FROM accountdb.account where accountno = %d", accountNo);
-	int queryStat = mysql_query(DBconnection, getAccountInfoQuery);
-	if (queryStat != 0)
-	{
-		Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s\n", mysql_error(DBconnection));
-		_accountDB.CloseConnection();
-		for (int i = 0; i < 1; i++)
-		{
-			if (_accountDB.Connect() == true&& mysql_query(DBconnection= _accountDB.GetConnection(), getAccountInfoQuery)==0)
-			{
-				break;
-			}
-			_accountDB.CloseConnection();
-		}
-	}
-
-	MYSQL_RES* sql_result;
-	MYSQL_ROW sql_row;
-	Array<WCHAR, 20> userId;
-	Array<WCHAR, 20> userNick;
-	sql_result = mysql_store_result(DBconnection);
-	if (sql_result)
-	{
-		sql_row = mysql_fetch_row(sql_result);
-		MultiByteToWideChar(CP_ACP, 0, sql_row[1], strlen(sql_row[1]) + 1, userId.data(), 20);
-		MultiByteToWideChar(CP_ACP, 0, sql_row[3], strlen(sql_row[3]) + 1, userNick.data(), 20);
-		mysql_free_result(sql_result);
-	}
-	std::future<cpp_redis::reply> futureReply= _loginTokenRedis.GetRedisConnection()->setex(std::to_string(accountNo),30,sessionKey.data());
-	_loginTokenRedis.GetRedisConnection()->sync_commit();
-	cpp_redis::reply reply= futureReply.get();
-	if (reply.is_simple_string()==false)
-	{
-		Log::LogOnFile(Log::SYSTEM_LEVEL, "redis set fail\n");
-	}
-	String ip;
-	GetClientIp(sessionInfo, ip);
-	ResLogin(sessionInfo, accountNo, dfLOGIN_STATUS_OK, userId, userNick, _gameServerIpArr, _gameServerPort, _chatServerIpArr, _chatServerPort, true);
-	InterlockedIncrement(&_procLoginReqCnt);
+	_loginDBJobQueue->PushDBJob(&LoginDBJobQueue::ProcReqLogin,this,sessionInfo,accountNo,sessionKey);
 }
 
 void LoginServer::Monitor()
@@ -112,8 +73,9 @@ LoginServer::~LoginServer()
 	CloseServer();
 }
 
-LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json"), _accountDB("LoginServerSetting.json"), _loginTokenRedis("LoginServerSetting.json")
+LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json")
 {
+
 	Document serverSetValues = ParseJson("LoginServerSetting.json");
 	std::string chatServerIp = serverSetValues["ChatServerIp"].GetString();
 	std::wstring wChatServerIp;
@@ -124,6 +86,8 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	std::wstring wGameServerIp;
 	wGameServerIp.assign(gameServerIp.begin(), gameServerIp.end());
 	std::copy(wGameServerIp.begin(), wGameServerIp.end(), _gameServerIpArr.begin());
+
+	_loginDBJobQueue = new LoginDBJobQueue;
 
 	_chatServerPort = serverSetValues["ChatServerPort"].GetInt();
 	_gameServerPort = serverSetValues["GameServerPort"].GetInt();
