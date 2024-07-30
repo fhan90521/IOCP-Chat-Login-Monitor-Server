@@ -46,9 +46,7 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 			}
 		}
 	);
-	_loginTokenRedis.GetRedisConnection()->commit();
-
-
+	_loginTokenRedis.GetRedisConnection()->sync_commit();
 }
 
 LoginDBJobQueue::LoginDBJobQueue(HANDLE hCompletionPort): JobQueue(hCompletionPort) , _accountDB("LoginServerSetting.json"), _loginTokenRedis("LoginServerSetting.json")
