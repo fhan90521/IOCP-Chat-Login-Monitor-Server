@@ -5,12 +5,14 @@
 #include "MyStlContainer.h"
 #include "SSMonitorClient.h"
 #include "PerformanceMonitor.h"
-#include "RedisManager.h"
+#include <atomic>
 class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
 {
 private:
 	friend class LoginDBJobQueue;
-	class LoginDBJobQueue* _loginDBJobQueue;
+	class LoginDBJobQueue* _loginDBJobQueueArr;
+	int _dbQueueCnt = 2;
+	int _dbQueueArrIndex = 0;
 	Array<WCHAR, 16>_chatServerIpArr;
 	USHORT _chatServerPort;
 	Array<WCHAR, 16> _gameServerIpArr;

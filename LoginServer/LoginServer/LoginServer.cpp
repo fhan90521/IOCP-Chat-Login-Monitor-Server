@@ -37,7 +37,8 @@ void LoginServer::Run()
 
 void LoginServer::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
-	_loginDBJobQueue->PushDBJob(&LoginDBJobQueue::ProcReqLogin,this,sessionInfo,accountNo,sessionKey);
+	int index = (_dbQueueArrIndex++) % _dbQueueCnt;
+	_loginDBJobQueueArr[index].PushDBJob(&LoginDBJobQueue::ProcReqLogin, this, sessionInfo, accountNo, sessionKey);
 }
 
 void LoginServer::Monitor()
@@ -71,7 +72,7 @@ _reservList size : {}
 LoginServer::~LoginServer()
 {
 	CloseServer();
-	delete _loginDBJobQueue;
+	delete _loginDBJobQueueArr;
 }
 
 LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json")
@@ -88,8 +89,7 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	wGameServerIp.assign(gameServerIp.begin(), gameServerIp.end());
 	std::copy(wGameServerIp.begin(), wGameServerIp.end(), _gameServerIpArr.begin());
 
-	_loginDBJobQueue = new LoginDBJobQueue;
-
+	_loginDBJobQueueArr = new LoginDBJobQueue[_dbQueueCnt];
 	_chatServerPort = serverSetValues["ChatServerPort"].GetInt();
 	_gameServerPort = serverSetValues["GameServerPort"].GetInt();
 	_monitorClient.Run();

@@ -1,8 +1,8 @@
 {
-	"IOCP_THREAD_NUM": 4,
-	"CONCURRENT_THREAD_NUM": 2,
+	"IOCP_THREAD_NUM": 2,
+	"CONCURRENT_THREAD_NUM": 1,
 
-	"BIND_IP": "127.0.0.1",
+	"BIND_IP": "0.0.0.0",
 
 	"BIND_PORT": 2000,
 
@@ -20,7 +20,7 @@
 
 	"REDIS_IP":  "127.0.0.1",
 
-	"ChatServerIp": "127.0.0.1",
+	"ChatServerIp": "192.168.0.76",
 	"GameServerIp": "127.0.0.1",
 	"ChatServerPort": 6000,
 	"GameServerPort": 3000

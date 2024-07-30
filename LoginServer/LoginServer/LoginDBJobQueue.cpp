@@ -37,8 +37,6 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 		{
 			if (reply.is_simple_string() == true)
 			{
-				String ip;
-				loginServer->GetClientIp(sessionInfo, ip);
 				loginServer->ResLogin(sessionInfo, accountNo, dfLOGIN_STATUS_OK, userId, userNick, loginServer->_gameServerIpArr, loginServer->_gameServerPort, loginServer->_chatServerIpArr, loginServer->_chatServerPort, true);
 				InterlockedIncrement(&loginServer->_procLoginReqCnt);
 			}
@@ -48,6 +46,7 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 			}
 		}
 	);
+	_loginTokenRedis.GetRedisConnection()->commit();
 
 
 }

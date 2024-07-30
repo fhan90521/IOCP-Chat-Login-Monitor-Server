@@ -9,7 +9,7 @@
 #include <process.h>
 #include "PerformanceMonitor.h"
 #include "SSMonitorClient.h"
-#include "RedisManager.h"
+#include "RedisHelper.h"
 #define DEFAULT_SECTOR 55
 class ChatServer : public IOCPServer, public ChatServerStub, public ChatServerProxy
 {
@@ -18,7 +18,7 @@ public:
 	~ChatServer();
 	void Run() override;
 private:
-	RedisManager _redisManager;
+	RedisHelper _loginTokenRedis;
 	bool OnAcceptRequest(const char* ip, USHORT port) override;
 	void OnAccept(SessionInfo sessionInfo) override;
 	void OnDisconnect(SessionInfo sessionInfo) override;

@@ -12,12 +12,12 @@ bool ChatServer::OnAcceptRequest(const char* ip, USHORT port)
 void ChatServer::OnAccept(SessionInfo sessionInfo)
 {
     _onConnectCnt++;
-    _pRoom->TryDoSync(&ChatRoom::OnEnter,sessionInfo);
+    _pRoom->DoAsync(&ChatRoom::OnEnter,sessionInfo);
 }
 
 void ChatServer::OnDisconnect(SessionInfo sessionInfo)
 {
-    _pRoom->TryDoSync(&ChatRoom::OnLeave,sessionInfo);
+    _pRoom->DoAsync(&ChatRoom::OnLeave,sessionInfo);
 }
 
 void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
@@ -30,37 +30,32 @@ void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 
 void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName, Array<char, 64>& sessionKey)
 {  
-    bool bSuccess = false;
-    _redisManager.GetRedisConnection()->get(std::to_string(accountNo), [&sessionKey, &bSuccess](cpp_redis::reply& reply) {
+    _loginTokenRedis.GetRedisConnection()->get(std::to_string(accountNo), [this, sessionInfo, accountNo, id, nickName, sessionKey](cpp_redis::reply& reply) {
         if (reply.is_bulk_string() && memcmp(sessionKey.data(), reply.as_string().data(), 64) == 0)
         {
-            bSuccess = true;
+            _pRoom->DoAsync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
+        }
+        else
+        {
+            Disconnect(sessionInfo);
         }
      });
-    _redisManager.GetRedisConnection()->sync_commit();
-    if (bSuccess)
-    {
-        _pRoom->TryDoSync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
-    }
-    else
-    {
-        Disconnect(sessionInfo);
-    }
+    _loginTokenRedis.GetRedisConnection()->commit();
 }
 
 void ChatServer::ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY)
 {
-    _pRoom->TryDoSync(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
+    _pRoom->DoAsync(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
 }
 
 void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg)
 {
-    _pRoom->TryDoSync(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
+    _pRoom->DoAsync(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
 }
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 {
-    _pRoom->TryDoSync(&ChatRoom::HeartBeatCS, sessionInfo);
+    _pRoom->DoAsync(&ChatRoom::HeartBeatCS, sessionInfo);
 }
 
 void ChatServer::Monitor()
@@ -106,7 +101,7 @@ ResMsgTps: {}
     }
 }
 
-ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"),_redisManager("ChatServerSetting.json")
+ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"), _loginTokenRedis("ChatServerSetting.json")
 {
     _pRoom = MakeShared<ChatRoom>(this);
     _monitor.AddInterface(BIND_IP);
