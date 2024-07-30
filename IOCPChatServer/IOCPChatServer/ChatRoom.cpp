@@ -82,7 +82,7 @@ void ChatRoom::GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WO
         }
     }
 }
-ChatRoom::ChatRoom(ChatServer* pServer):JobQueue(pServer),_pServer(pServer)
+ChatRoom::ChatRoom(ChatServer* pServer):JobQueue(pServer->GetCompletionPortHandle()),_pServer(pServer)
 {
 }
 void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName)

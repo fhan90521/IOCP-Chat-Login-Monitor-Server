@@ -6,19 +6,21 @@
 #include "SSMonitorClient.h"
 #include "PerformanceMonitor.h"
 #include <atomic>
+#include "WorkThreadPool.h"
 class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
 {
-private:
-	friend class LoginDBJobQueue;
-	class LoginDBJobQueue* _loginDBJobQueueArr;
-	int _dbQueueCnt = 2;
-	int _dbQueueArrIndex = 0;
+public:
 	Array<WCHAR, 16>_chatServerIpArr;
 	USHORT _chatServerPort;
 	Array<WCHAR, 16> _gameServerIpArr;
 	USHORT _gameServerPort;
 	LONG64 _onConnectCnt=0;
-	
+	LONG _procLoginReqCnt = 0;
+private:
+	WorkThreadPool* _dbWorkThreadPool;
+	Vector<class LoginDBJobQueue*> _dbJobQueues;
+	int _dbQueueIndex = 0;
+	int _dbConcurrentWorkThreadCnt = 2;
 	virtual bool OnAcceptRequest(const char* ip, USHORT port) override;
 	virtual void OnAccept(SessionInfo sessionInfo) override;
 	virtual void OnDisconnect(SessionInfo sessionInfo) override;
@@ -27,7 +29,6 @@ private:
 
 	PerformanceMonitor _monitor;
 	SSMonitorClient _monitorClient;
-	LONG _procLoginReqCnt = 0;
 public:
 	LONG GetProcLoginReqCnt()
 	{

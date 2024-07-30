@@ -51,6 +51,6 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 
 }
 
-LoginDBJobQueue::LoginDBJobQueue(): _accountDB("LoginServerSetting.json"), _loginTokenRedis("LoginServerSetting.json")
+LoginDBJobQueue::LoginDBJobQueue(HANDLE hCompletionPort): JobQueue(hCompletionPort) , _accountDB("LoginServerSetting.json"), _loginTokenRedis("LoginServerSetting.json")
 {
 }
