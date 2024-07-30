@@ -18,7 +18,7 @@ public:
 	LONG _procLoginReqCnt = 0;
 private:
 	WorkThreadPool* _dbWorkThreadPool;
-	Vector<class LoginDBJobQueue*> _dbJobQueues;
+	Vector<SharedPtr<class LoginDBJobQueue>> _dbJobQueues;
 	int _dbQueueIndex = 0;
 	int _dbConcurrentWorkThreadCnt = 2;
 	virtual bool OnAcceptRequest(const char* ip, USHORT port) override;

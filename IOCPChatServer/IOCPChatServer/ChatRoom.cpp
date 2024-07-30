@@ -69,6 +69,11 @@ void ChatRoom::OnLeave (SessionInfo sessionInfo)
         _pServer->Disconnect(sessionInfo);
     }
 }
+void ChatRoom::Update(float deltaTime)
+{
+    //실제로 더미테스트에서는 heartbeat를 쏘지 않아서 
+    //CheckHeartBeat();
+}
 void ChatRoom::GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WORD sectorX, WORD sectorY)
 {
     for (int dy = -1; dy <= 1; dy++)
@@ -82,7 +87,11 @@ void ChatRoom::GetSessionInfoAroundSector(List<SessionInfo>& sessionInfoList, WO
         }
     }
 }
-ChatRoom::ChatRoom(ChatServer* pServer):JobQueue(pServer->GetCompletionPortHandle()),_pServer(pServer)
+void ChatRoom::OnLeaveRoomSystem(SessionInfo sessionInfo)
+{
+    OnLeave(sessionInfo);
+}
+ChatRoom::ChatRoom(ChatServer* pServer):Room(pServer->GetCompletionPortHandle()),_pServer(pServer)
 {
 }
 void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName)

@@ -10,6 +10,7 @@
 #include "PerformanceMonitor.h"
 #include "SSMonitorClient.h"
 #include "RedisHelper.h"
+#include "RoomSystem.h"
 #define DEFAULT_SECTOR 55
 class ChatServer : public IOCPServer, public ChatServerStub, public ChatServerProxy
 {
@@ -31,7 +32,9 @@ private:
 	PerformanceMonitor _monitor;
 
 public:
-	SharedPtr<class ChatRoom> _pRoom = nullptr;
+	RoomSystem _chatRoomSystem;
+	int _chatRoomID = 0;
+	SharedPtr<class ChatRoom> _chatRoom = nullptr;
 	DWORD _onConnectCnt = 0;
 	void Monitor();
 

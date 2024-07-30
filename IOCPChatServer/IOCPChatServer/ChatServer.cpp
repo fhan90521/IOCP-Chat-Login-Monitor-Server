@@ -12,12 +12,12 @@ bool ChatServer::OnAcceptRequest(const char* ip, USHORT port)
 void ChatServer::OnAccept(SessionInfo sessionInfo)
 {
     _onConnectCnt++;
-    _pRoom->DoAsync(&ChatRoom::OnEnter,sessionInfo);
+    _chatRoomSystem.EnterRoomSystem(sessionInfo, _chatRoomID);
 }
 
 void ChatServer::OnDisconnect(SessionInfo sessionInfo)
 {
-    _pRoom->DoAsync(&ChatRoom::OnLeave,sessionInfo);
+    _chatRoomSystem.LeaveRoomSystem(sessionInfo);
 }
 
 void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
@@ -33,7 +33,7 @@ void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arra
     _loginTokenRedis.GetRedisConnection()->get(std::to_string(accountNo), [this, sessionInfo, accountNo, id, nickName, sessionKey](cpp_redis::reply& reply) {
         if (reply.is_bulk_string() && memcmp(sessionKey.data(), reply.as_string().data(), 64) == 0)
         {
-            _pRoom->DoAsync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
+            _chatRoom->DoAsync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
         }
         else
         {
@@ -45,22 +45,22 @@ void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arra
 
 void ChatServer::ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY)
 {
-    _pRoom->DoAsync(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
+    _chatRoom->DoAsync(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
 }
 
 void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg)
 {
-    _pRoom->DoAsync(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
+    _chatRoom->DoAsync(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
 }
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
 {
-    _pRoom->DoAsync(&ChatRoom::HeartBeatCS, sessionInfo);
+    _chatRoom->DoAsync(&ChatRoom::HeartBeatCS, sessionInfo);
 }
 
 void ChatServer::Monitor()
 {
-    int ProcessJobCnt = _pRoom->GetProcessedJobCnt();
+    int ProcessJobCnt = _chatRoom->GetProcessedJobCnt();
     int bufAllocCnt = CSendBuffer::GetAllocCnt();
     std::cout << std::format(R"(
 -------------------------------------
@@ -79,7 +79,7 @@ SendMessageTps: {}
 ReqMsgTps: {}
 ResMsgTps: {}
 
-)", GetConnectingSessionCnt(), _pRoom->GetJobQueueLen(), GetAllocatingCnt<ChatPlayer>(), _pRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _pRoom->GetReqMsgCnt(), _pRoom->GetSendMsgCnt());
+)", GetConnectingSessionCnt(), _chatRoom->GetJobQueueLen(), GetAllocatingCnt<ChatPlayer>(), _chatRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _chatRoom->GetReqMsgCnt(), _chatRoom->GetSendMsgCnt());
     _monitor.PrintMonitorData();
     time_t currentTime;
     time(&currentTime);
@@ -89,10 +89,10 @@ ResMsgTps: {}
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SERVER_CPU, _monitor.GetProcessCpuTotal(), currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SERVER_MEM, _monitor.GetProcessUserMemoryByMB(), currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_SESSION, GetConnectingSessionCnt(), currentTime);
-        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_PLAYER, _pRoom->GetPlayerCnt(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_PLAYER, _chatRoom->GetPlayerCnt(), currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_UPDATE_TPS, ProcessJobCnt, currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_PACKET_POOL, bufAllocCnt, currentTime);
-        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_UPDATEMSG_POOL, _pRoom->GetJobQueueLen(), currentTime);
+        _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_CHAT_UPDATEMSG_POOL, _chatRoom->GetJobQueueLen(), currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_CPU_TOTAL, _monitor.GetSystemCpuTotal(), currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_NONPAGED_MEMORY, _monitor.GetSystemNonPagedByMB(), currentTime);
         _monitorClient.MonitorServerDataUpdate(dfMONITOR_DATA_TYPE_MONITOR_NETWORK_RECV, _monitor.GetInDataSizeByKB(), currentTime);
@@ -101,15 +101,18 @@ ResMsgTps: {}
     }
 }
 
-ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"), _loginTokenRedis("ChatServerSetting.json")
+ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"), _loginTokenRedis("ChatServerSetting.json"),_chatRoomSystem(this)
 {
-    _pRoom = MakeShared<ChatRoom>(this);
+    _chatRoom = MakeShared<ChatRoom>(this);
+    _chatRoomID =_chatRoomSystem.RegisterRoom(_chatRoom);
     _monitor.AddInterface(BIND_IP);
     _monitorClient.Run();
 }
 
 ChatServer::~ChatServer()
 {
+    CloseServer();
+    _chatRoomSystem.DeregisterRoom(_chatRoomID);
 }
 
 void ChatServer::Run()

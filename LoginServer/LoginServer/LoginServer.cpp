@@ -6,6 +6,7 @@
 #include "ParseJson.h"
 #include "Log.h"
 #include "LoginDBJobQueue.h"
+#include "MakeShared.h"
 bool LoginServer::OnAcceptRequest(const char* ip, USHORT port)
 {
 	return true;
@@ -73,11 +74,6 @@ LoginServer::~LoginServer()
 {
 	CloseServer();
 	delete _dbWorkThreadPool;
-	for (int i = 0; i < _dbConcurrentWorkThreadCnt; i++)
-	{
-		delete _dbJobQueues[i];
-	}
-
 }
 
 LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json")
@@ -97,7 +93,7 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	_dbWorkThreadPool = new WorkThreadPool(_dbConcurrentWorkThreadCnt, _dbConcurrentWorkThreadCnt *2);
 	for (int i = 0; i < _dbConcurrentWorkThreadCnt; i++)
 	{
-		_dbJobQueues.push_back(new LoginDBJobQueue(_dbWorkThreadPool->GetCompletionPortHandle()));
+		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(_dbWorkThreadPool->GetCompletionPortHandle()));
 	}
 
 	_chatServerPort = serverSetValues["ChatServerPort"].GetInt();

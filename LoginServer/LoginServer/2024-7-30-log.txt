@@ -33,3 +33,8 @@ connect fail: 10061First Connect Error
 24436 스레드 종료
 41644 스레드 종료
 16256 스레드 종료
+32716 스레드 종료
+27408 스레드 종료
+2276 스레드 종료
+42240 스레드 종료
+connect fail: 10061ReConnect Error
