@@ -1,5 +1,5 @@
-#include  "ChatClientStub.h"
- #include <iostream>
+#include "ChatClientStub.h"
+#include "IOCPServer.h"
 #include "Log.h"
 using namespace std;
 bool ChatClientStub::PacketProcChatReqLogin(CRecvBuffer& buf)
@@ -14,12 +14,13 @@ bool ChatClientStub::PacketProcChatReqLogin(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqLogin error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqLogin error\n");
+		return false;
 	}
 	ProcChatReqLogin(accountNo, id, nickName, sessionKey);
 	return true;
 }
+
 bool ChatClientStub::PacketProcChatResLogin(CRecvBuffer& buf)
 {
 	BYTE status;
@@ -30,12 +31,13 @@ bool ChatClientStub::PacketProcChatResLogin(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResLogin error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResLogin error\n");
+		return false;
 	}
 	ProcChatResLogin(status, accountNo);
 	return true;
 }
+
 bool ChatClientStub::PacketProcChatReqSectorMove(CRecvBuffer& buf)
 {
 	INT64 accountNo;
@@ -47,12 +49,13 @@ bool ChatClientStub::PacketProcChatReqSectorMove(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqSectorMove error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqSectorMove error\n");
+		return false;
 	}
 	ProcChatReqSectorMove(accountNo, sectorX, sectorY);
 	return true;
 }
+
 bool ChatClientStub::PacketProcChatResSectorMove(CRecvBuffer& buf)
 {
 	INT64 accountNo;
@@ -64,12 +67,13 @@ bool ChatClientStub::PacketProcChatResSectorMove(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResSectorMove error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResSectorMove error\n");
+		return false;
 	}
 	ProcChatResSectorMove(accountNo, sectorX, sectorY);
 	return true;
 }
+
 bool ChatClientStub::PacketProcChatReqMessage(CRecvBuffer& buf)
 {
 	INT64 accountNo;
@@ -80,12 +84,13 @@ bool ChatClientStub::PacketProcChatReqMessage(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqMessage error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqMessage error\n");
+		return false;
 	}
 	ProcChatReqMessage(accountNo, msg);
 	return true;
 }
+
 bool ChatClientStub::PacketProcChatResMessage(CRecvBuffer& buf)
 {
 	INT64 accountNo;
@@ -98,12 +103,13 @@ bool ChatClientStub::PacketProcChatResMessage(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResMessage error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResMessage error\n");
+		return false;
 	}
 	ProcChatResMessage(accountNo, id, nickName, msg);
 	return true;
 }
+
 bool ChatClientStub::PacketProcChatReqHeartbeat(CRecvBuffer& buf)
 {
 	try
@@ -112,8 +118,8 @@ bool ChatClientStub::PacketProcChatReqHeartbeat(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqHeartbeat error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqHeartbeat error\n");
+		return false;
 	}
 	ProcChatReqHeartbeat();
 	return true;
@@ -124,11 +130,11 @@ bool ChatClientStub::PacketProc(CRecvBuffer& buf)
 	short packetType;
 	try
 	{
-		buf>>packetType;
+		buf >> packetType;
 	}
 	catch(int remainSize)
 	{
-		 return false;
+		return false;
 	}
 	switch(packetType)
 	{
@@ -169,9 +175,7 @@ bool ChatClientStub::PacketProc(CRecvBuffer& buf)
 	}
 	default:
 	{
-		Log::LogOnFile(Log::DEBUG_LEVEL,"Packet Type not exist error\n");
 		return false;
-		break;
 	}
 	}
 }

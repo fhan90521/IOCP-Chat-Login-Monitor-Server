@@ -8,7 +8,7 @@ bool CSMonitorServer::OnAcceptRequest(const char* ip, USHORT port)
 void CSMonitorServer::OnAccept(SessionInfo sessionInfo)
 {
 	AcquireSRWLockExclusive(&_sessionStatusLock);
-	_sessionStatusMap[sessionInfo.id];
+	_sessionStatusMap[sessionInfo.Id()];
 	ReleaseSRWLockExclusive(&_sessionStatusLock);
 
 }
@@ -16,7 +16,7 @@ void CSMonitorServer::OnAccept(SessionInfo sessionInfo)
 void CSMonitorServer::OnDisconnect(SessionInfo sessionInfo)
 {
 	AcquireSRWLockExclusive(&_sessionStatusLock);
-	_sessionStatusMap.erase(sessionInfo.id);
+	_sessionStatusMap.erase(sessionInfo.Id());
 	ReleaseSRWLockExclusive(&_sessionStatusLock);
 
     AcquireSRWLockExclusive(&_monitorToolListLock);
@@ -33,7 +33,7 @@ void CSMonitorServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
     else
     {
         AcquireSRWLockExclusive(&_sessionStatusLock);
-        _time32(&_sessionStatusMap[sessionInfo.id].lastRecvTime);
+        _time32(&_sessionStatusMap[sessionInfo.Id()].lastRecvTime);
         ReleaseSRWLockExclusive(&_sessionStatusLock);
     }
 }
@@ -48,7 +48,7 @@ void CSMonitorServer::ProcReqLoginByMonitorTool(SessionInfo sessionInfo, Array<c
     AcquireSRWLockExclusive(&_monitorToolListLock);
     _monitorToolSessionInfoList.push_back(sessionInfo);
     ReleaseSRWLockExclusive(&_monitorToolListLock);
-    _sessionStatusMap[sessionInfo.id].status = SessionStatus::AFTER_LOGIN;
+    _sessionStatusMap[sessionInfo.Id()].status = SessionStatus::AFTER_LOGIN;
     ResLoginCS(sessionInfo, dfMONITOR_TOOL_LOGIN_OK);
 }
 

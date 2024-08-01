@@ -25,6 +25,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Chat</Filter>
     </ClCompile>
+    <ClCompile Include="ChatClientStub.cpp">
+      <Filter>RPC</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatDummyClientProxy.cpp">
+      <Filter>RPC</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatClientProxy.cpp">
+      <Filter>RPC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SSMonitorClient.h">
@@ -66,13 +75,19 @@
     <ClInclude Include="ChatSession.h">
       <Filter>Chat</Filter>
     </ClInclude>
+    <ClInclude Include="ChatClientStub.h">
+      <Filter>RPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatDummyClientProxy.h">
+      <Filter>RPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatClientProxy.h">
+      <Filter>RPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ChatServerSetting.json">
       <Filter>Resource</Filter>
-    </None>
-    <None Include="RPCcompiler.py">
-      <Filter>RPC</Filter>
     </None>
     <None Include="SSMonitorClientSetting.json">
       <Filter>Resource</Filter>

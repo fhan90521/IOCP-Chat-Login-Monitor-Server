@@ -104,6 +104,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,6 +126,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -137,6 +143,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,11 +166,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>python ./RPCcompiler.py ./RPCReferenceSSMonitor.txt SSMonitor
-python ./RPCcompiler.py ./RPCReference.txt Chat</Command>
+      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChatClientProxy.cpp" />
+    <ClCompile Include="ChatClientStub.cpp" />
+    <ClCompile Include="ChatDummyClientProxy.cpp" />
     <ClCompile Include="ChatRoom.cpp" />
     <ClCompile Include="ChatServer.cpp" />
     <ClCompile Include="ChatServerProxy.cpp" />
@@ -172,6 +183,9 @@ python ./RPCcompiler.py ./RPCReference.txt Chat</Command>
     <ClCompile Include="SSMonitorClientStub.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChatClientProxy.h" />
+    <ClInclude Include="ChatClientStub.h" />
+    <ClInclude Include="ChatDummyClientProxy.h" />
     <ClInclude Include="ChatRoom.h" />
     <ClInclude Include="ChatServer.h" />
     <ClInclude Include="ChatServerPKT_TYPE.h" />
@@ -192,7 +206,6 @@ python ./RPCcompiler.py ./RPCReference.txt Chat</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="ChatServerSetting.json" />
-    <None Include="RPCcompiler.py" />
     <None Include="SSMonitorClientSetting.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

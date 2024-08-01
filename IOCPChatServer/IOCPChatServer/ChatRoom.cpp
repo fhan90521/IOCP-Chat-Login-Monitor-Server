@@ -16,7 +16,7 @@ void ChatRoom::CheckHeartBeat()
 }
 void ChatRoom::HeartBeatCS(SessionInfo sessionInfo)
 {
-    auto iter =_chatSessionMap.find(sessionInfo.id);
+    auto iter =_chatSessionMap.find(sessionInfo.Id());
     if (iter != _chatSessionMap.end())
     {
         ChatSession* pSession = iter->second;
@@ -29,14 +29,14 @@ void ChatRoom::HeartBeatCS(SessionInfo sessionInfo)
 }
 void ChatRoom::OnEnter(SessionInfo sessionInfo)
 {
-    auto iter  = _chatSessionMap.find(sessionInfo.id);
+    auto iter  = _chatSessionMap.find(sessionInfo.Id());
     if (iter == _chatSessionMap.end())
     {
         ChatSession* newSession = New<ChatSession>();
         newSession->lastRecvTime = GetTickCount64();
         newSession->sessionInfo = sessionInfo;
         newSession->sessionType = SessionType::Guest;
-        _chatSessionMap[sessionInfo.id] = newSession;
+        _chatSessionMap[sessionInfo.Id()] = newSession;
     }
     else
     {
@@ -46,7 +46,7 @@ void ChatRoom::OnEnter(SessionInfo sessionInfo)
 }
 void ChatRoom::OnLeave (SessionInfo sessionInfo)
 {
-    auto iter = _chatSessionMap.find(sessionInfo.id);
+    auto iter = _chatSessionMap.find(sessionInfo.Id());
     if (iter != _chatSessionMap.end())
     {
         ChatSession* chatSession  = iter->second;
@@ -105,7 +105,7 @@ void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 2
     }
     else
     {
-        auto iterSessionMap = _chatSessionMap.find(sessionInfo.id);
+        auto iterSessionMap = _chatSessionMap.find(sessionInfo.Id());
         if (iterSessionMap != _chatSessionMap.end())
         {
             ChatSession* pSession = iterSessionMap->second;

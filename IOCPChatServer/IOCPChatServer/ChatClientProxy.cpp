@@ -1,4 +1,4 @@
-#include  "ChatClientProxy.h"
+#include "ChatClientProxy.h"
 #include "ChatPKT_TYPE.h"
 void ChatClientProxy::ChatReqLogin(INT64 accountNo, Array<WCHAR,20>& id, Array<WCHAR,20>& nickName, Array<char,64>& sessionKey, bool bDisconnect)
 {

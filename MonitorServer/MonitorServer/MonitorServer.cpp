@@ -25,7 +25,7 @@ void MonitorServer::OnAccept(SessionInfo sessionInfo)
 void MonitorServer::OnDisconnect(SessionInfo sessionInfo)
 {
     AcquireSRWLockExclusive(&_serverNoLock);
-    auto iter = _serverNoMap.find(sessionInfo.id);
+    auto iter = _serverNoMap.find(sessionInfo.Id());
     if (iter != _serverNoMap.end())
     {
         int serverNo = iter->second;
@@ -51,7 +51,7 @@ void MonitorServer::ProcReqLoginByServer(SessionInfo sessionInfo, int serverNo)
     auto retInsert=_severNoSet.insert(serverNo);
     if (retInsert.second == true)
     {
-        _serverNoMap[sessionInfo.id] = serverNo;
+        _serverNoMap[sessionInfo.Id()] = serverNo;
         _monitorDatasMap[serverNo] = new MonitorDatas();
         ResLoginSS(sessionInfo, dfMONITOR_TOOL_LOGIN_OK);
     }
@@ -66,7 +66,7 @@ void MonitorServer::ProcMonitorServerDataUpdate(SessionInfo sessionInfo, BYTE da
 {
     int serverNo;
     AcquireSRWLockShared(&_serverNoLock);
-    serverNo = _serverNoMap[sessionInfo.id];
+    serverNo = _serverNoMap[sessionInfo.Id()];
     ReleaseSRWLockShared(&_serverNoLock);
 
     _pCSMonitorServer->BroadcastUpdate(serverNo, dataType, dataValue, timeStamp);
