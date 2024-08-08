@@ -130,13 +130,5 @@ void MonitorServer::LogOnDB(int serverNo, int type, float avr, int min, int max)
     {
         Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s", mysql_error(connection));
         _logDB.CloseConnection();
-        for (int i = 0; i < 5; i++)
-        {
-            if (_logDB.Connect() == true&& mysql_query(_logDB.GetConnection(), query)==0)
-            {
-                break;
-            }
-            _logDB.CloseConnection();
-        }
     }
 }

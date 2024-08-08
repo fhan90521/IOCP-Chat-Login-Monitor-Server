@@ -1,7 +1,6 @@
 #include "ChatServerStub.h"
 #include "IOCPServer.h"
 #include "Log.h"
-using namespace std;
 bool ChatServerStub::PacketProcChatReqLogin(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	INT64 accountNo;

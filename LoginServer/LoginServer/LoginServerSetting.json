@@ -20,7 +20,7 @@
 
 	"REDIS_IP":  "127.0.0.1",
 
-	"ChatServerIp": "192.168.0.76",
+	"ChatServerIp": "192.168.0.77",
 	"GameServerIp": "127.0.0.1",
 	"ChatServerPort": 6000,
 	"GameServerPort": 3000

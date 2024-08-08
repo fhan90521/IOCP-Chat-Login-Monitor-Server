@@ -1,6 +1,6 @@
 #include "SSMonitorClient.h"
 #include "MonitorProtocol.h"
-
+#include "ParseJson.h"
 void SSMonitorClient::OnDisconnect()
 {
 	_bLoginSuccess = false;
@@ -34,6 +34,8 @@ void SSMonitorClient::ProcResLoginSS(BYTE status)
 
 SSMonitorClient::SSMonitorClient(): IOCPClient("SSMonitorClientSetting.json",false ), SSMonitorClientProxy(this)
 {
+	Document clientSetValues = ParseJson("SSMonitorClientSetting.json");
+	_monitorServerId = clientSetValues["MONITOR_SERVER_ID"].GetInt();
 }
 
 void SSMonitorClient::Run()

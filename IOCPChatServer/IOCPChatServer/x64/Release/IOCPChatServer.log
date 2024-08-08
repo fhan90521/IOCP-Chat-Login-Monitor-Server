@@ -1,4 +1,5 @@
-﻿  ChatClientProxy.cpp
+﻿  RedisHelper.cpp
+  ChatClientProxy.cpp
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\__msvc_cxx_stdatomic.hpp(25): warning STL4038: The contents of <stdatomic.h> are available only with C++23 or later.
@@ -15,14 +16,14 @@ C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\C
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\__msvc_cxx_stdatomic.hpp(25): warning STL4038: The contents of <stdatomic.h> are available only with C++23 or later.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(15,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(32,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(50,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(68,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(85,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(104,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(119,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(135,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(14,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(31,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(49,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(67,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(84,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(103,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(118,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatClientStub.cpp(134,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
   ChatDummyClientProxy.cpp
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -108,24 +109,23 @@ C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\C
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\__msvc_cxx_stdatomic.hpp(25): warning STL4038: The contents of <stdatomic.h> are available only with C++23 or later.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(15,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(32,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(50,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(68,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(85,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(104,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(119,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
-C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(135,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(14,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(31,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(49,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(67,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(84,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(103,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(118,12): warning C4101: 'useSize' :참조되지 않은 지역 변수입니다.
+C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\IOCPChatServer\ChatServerStub.cpp(134,12): warning C4101: 'remainSize' :참조되지 않은 지역 변수입니다.
   main.cpp
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(189,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\CSendBuffer.h(207,17): warning C4244: '초기화 중': 'unsigned __int64'에서 'USHORT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\__msvc_cxx_stdatomic.hpp(25): warning STL4038: The contents of <stdatomic.h> are available only with C++23 or later.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(32,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\PerformanceMonitor.h(42,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-     C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\x64\Release\IOCPChatServer.lib 라이브러리 및 C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\x64\Release\IOCPChatServer.exp 개체를 생성하고 있습니다.
   코드를 생성하고 있습니다.
-  5 of 11755 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 11745 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   IOCPChatServer.vcxproj -> C:\Users\ghkdd\Desktop\Procademy\IOCP-LOGIN-CHAT\IOCPChatServer\x64\Release\IOCPChatServer.exe

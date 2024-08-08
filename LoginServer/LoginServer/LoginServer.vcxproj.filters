@@ -91,7 +91,7 @@
       <Filter>리소스 파일</Filter>
     </None>
     <None Include="SSMonitorClientSetting.json">
-      <Filter>Monitor</Filter>
+      <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>
 </Project>

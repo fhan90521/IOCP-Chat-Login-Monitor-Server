@@ -11,14 +11,7 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 	{
 		Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s\n", mysql_error(DBconnection));
 		_accountDB.CloseConnection();
-		for (int i = 0; i < 1; i++)
-		{
-			if (_accountDB.Connect() == true && mysql_query(DBconnection = _accountDB.GetConnection(), getAccountInfoQuery) == 0)
-			{
-				break;
-			}
-			_accountDB.CloseConnection();
-		}
+		return;
 	}
 
 	MYSQL_RES* sql_result;
