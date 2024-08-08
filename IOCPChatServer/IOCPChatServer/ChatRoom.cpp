@@ -20,7 +20,7 @@ void ChatRoom::HeartBeatCS(SessionInfo sessionInfo)
     if (iter != _chatSessionMap.end())
     {
         ChatSession* pSession = iter->second;
-        pSession->lastRecvTime = GetTickCount64();
+        pSession->lastRecvTime = GetCurTime();
     }
     else
     {
