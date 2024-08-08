@@ -105,7 +105,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -127,7 +128,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,7 +146,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -166,13 +169,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>python C:\Users\ghkdd\Desktop\Procademy\NetworkLibrary\NetworkLibrary\RPCcompiler2.0.py RPCreference.txt Chat</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ChatClientProxy.cpp" />
-    <ClCompile Include="ChatClientStub.cpp" />
-    <ClCompile Include="ChatDummyClientProxy.cpp" />
     <ClCompile Include="ChatRoom.cpp" />
     <ClCompile Include="ChatServer.cpp" />
     <ClCompile Include="ChatServerProxy.cpp" />
@@ -183,12 +184,9 @@
     <ClCompile Include="SSMonitorClientStub.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChatClientProxy.h" />
-    <ClInclude Include="ChatClientStub.h" />
-    <ClInclude Include="ChatDummyClientProxy.h" />
+    <ClInclude Include="ChatPKT_TYPE.h" />
     <ClInclude Include="ChatRoom.h" />
     <ClInclude Include="ChatServer.h" />
-    <ClInclude Include="ChatServerPKT_TYPE.h" />
     <ClInclude Include="ChatServerProxy.h" />
     <ClInclude Include="ChatServerStub.h" />
     <ClInclude Include="ChatSession.h" />

@@ -7,6 +7,30 @@
 #include "Log.h"
 #include "LoginDBJobQueue.h"
 #include "MakeShared.h"
+void LoginServer::CheckLastRecvTime()
+{
+	while (1)
+	{
+		DWORD retWait = WaitForSingleObject(_hShutDownEvent, RECV_TIME_OUT);
+		if (retWait == WAIT_OBJECT_0)
+		{
+			break;
+		}
+		{
+			SHARED_LOCK;
+			ULONG64 curTime = GetTickCount64();
+			for (auto& pairTemp : _sessionMap)
+			{
+				LastRecvTime lastRecvTime = pairTemp.second;
+				if (curTime - lastRecvTime > RECV_TIME_OUT)
+				{
+					Disconnect(pairTemp.first);
+				}
+			}
+		}
+
+	}
+}
 bool LoginServer::OnAcceptRequest(const char* ip, USHORT port)
 {
 	return true;
@@ -15,11 +39,15 @@ bool LoginServer::OnAcceptRequest(const char* ip, USHORT port)
 void LoginServer::OnAccept(SessionInfo sessionInfo)
 {
 	InterlockedIncrement64(&_onConnectCnt);
+	EXCLUSIVE_LOCK;
+	_sessionMap[sessionInfo.Id()] = GetTickCount64();
 	return;
 }
 
 void LoginServer::OnDisconnect(SessionInfo sessionInfo)
 {
+	EXCLUSIVE_LOCK;
+	_sessionMap.erase(sessionInfo.Id());
 	return;
 }
 
@@ -28,6 +56,13 @@ void LoginServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 	if (PacketProc(sessionInfo, buf) == false)
 	{
 		Disconnect(sessionInfo);
+	}
+	else
+	{
+		//SESSION마다 RECV1회제한->_sessionMap에 특정 세션의 lastRecvTime을 고치고 있는 스레드는 하나일 수 밖에 없음->SHARED_LOCK만 걸고 쓰기해도 됨
+		//OnDisconnect 이후로는 동일 sessionID로 OnRecv가 호출 안됨 굳이 find하지 않고 바로 대입가능
+		SHARED_LOCK;
+		_sessionMap[sessionInfo.Id()] = GetTickCount64();
 	}
 }
 
@@ -72,6 +107,9 @@ _reservList size : {}
 
 LoginServer::~LoginServer()
 {
+	SetEvent(_hShutDownEvent);
+	_checkRecvTimeThread->join();
+	delete _checkRecvTimeThread;
 	CloseServer();
 	delete _dbWorkThreadPool;
 }
@@ -95,8 +133,11 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	{
 		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(_dbWorkThreadPool->GetCompletionPortHandle()));
 	}
-
+	
 	_chatServerPort = serverSetValues["ChatServerPort"].GetInt();
 	_gameServerPort = serverSetValues["GameServerPort"].GetInt();
 	_monitorClient.Run();
+
+	_hShutDownEvent = CreateEvent(NULL, TRUE, false, NULL);
+	_checkRecvTimeThread = new std::jthread(&LoginServer::CheckLastRecvTime, this);
 }

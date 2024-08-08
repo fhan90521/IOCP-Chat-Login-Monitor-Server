@@ -44,6 +44,11 @@ SSMonitorClient::SSMonitorClient(): IOCPClient("SSMonitorClientSetting.json",fal
 	_monitorServerId = clientSetValues["MONITOR_SERVER_ID"].GetInt();
 }
 
+SSMonitorClient::~SSMonitorClient()
+{
+	CloseClient();
+}
+
 void SSMonitorClient::Run()
 {
 	IOCPRun();

@@ -25,15 +25,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Chat</Filter>
     </ClCompile>
-    <ClCompile Include="ChatClientStub.cpp">
-      <Filter>RPC</Filter>
-    </ClCompile>
-    <ClCompile Include="ChatDummyClientProxy.cpp">
-      <Filter>RPC</Filter>
-    </ClCompile>
-    <ClCompile Include="ChatClientProxy.cpp">
-      <Filter>RPC</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SSMonitorClient.h">
@@ -47,9 +38,6 @@
     </ClInclude>
     <ClInclude Include="MonitorProtocol.h">
       <Filter>Monitor</Filter>
-    </ClInclude>
-    <ClInclude Include="ChatServerPKT_TYPE.h">
-      <Filter>RPC</Filter>
     </ClInclude>
     <ClInclude Include="ChatServerProxy.h">
       <Filter>RPC</Filter>
@@ -75,13 +63,7 @@
     <ClInclude Include="ChatSession.h">
       <Filter>Chat</Filter>
     </ClInclude>
-    <ClInclude Include="ChatClientStub.h">
-      <Filter>RPC</Filter>
-    </ClInclude>
-    <ClInclude Include="ChatDummyClientProxy.h">
-      <Filter>RPC</Filter>
-    </ClInclude>
-    <ClInclude Include="ChatClientProxy.h">
+    <ClInclude Include="ChatPKT_TYPE.h">
       <Filter>RPC</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include "PerformanceMonitor.h"
 #include <atomic>
 #include "WorkThreadPool.h"
+#include <thread>
 class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
 {
 public:
@@ -17,6 +18,17 @@ public:
 	LONG64 _onConnectCnt=0;
 	LONG _procLoginReqCnt = 0;
 private:
+	enum
+	{
+		RECV_TIME_OUT = 30000
+	};
+	std::jthread* _checkRecvTimeThread;
+	typedef ULONG64 LastRecvTime;
+	HashMap<SessionInfo::ID, LastRecvTime> _sessionMap;
+	USE_LOCK;
+	HANDLE _hShutDownEvent;
+	void CheckLastRecvTime();
+
 	WorkThreadPool* _dbWorkThreadPool;
 	Vector<SharedPtr<class LoginDBJobQueue>> _dbJobQueues;
 	int _dbQueueIndex = 0;

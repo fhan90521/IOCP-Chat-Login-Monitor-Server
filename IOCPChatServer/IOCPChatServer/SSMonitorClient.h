@@ -15,5 +15,6 @@ public:
 	//만약 끊기고 재연결에 실패하면 계속 쓸데없는 함수가 호출됨.
 	bool _bLoginSuccess = false;
 	SSMonitorClient();
+	virtual ~SSMonitorClient();
 	virtual void Run() override;
 };

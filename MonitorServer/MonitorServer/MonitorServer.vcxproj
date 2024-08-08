@@ -183,7 +183,6 @@
     <ClCompile Include="CSMonitorServerStub.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MonitorServer.cpp" />
-    <ClCompile Include="SSMonitorClientProxy.cpp" />
     <ClCompile Include="SSMonitorServerProxy.cpp" />
     <ClCompile Include="SSMonitorServerStub.cpp" />
   </ItemGroup>
@@ -194,14 +193,12 @@
     <ClInclude Include="CSMonitorServerStub.h" />
     <ClInclude Include="MonitorProtocol.h" />
     <ClInclude Include="MonitorServer.h" />
-    <ClInclude Include="SSMonitorClientProxy.h" />
     <ClInclude Include="SSMonitorPKT_TYPE.h" />
     <ClInclude Include="SSMonitorServerProxy.h" />
     <ClInclude Include="SSMonitorServerStub.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="RPCReferenceCSMonitor.txt" />
-    <Text Include="RPCReferenceMonitoring.txt" />
     <Text Include="RPCReferenceSSMonitor.txt" />
   </ItemGroup>
   <ItemGroup>
