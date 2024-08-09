@@ -22,7 +22,7 @@ private:
 	{
 		RECV_TIME_OUT = 30000
 	};
-	std::jthread* _checkRecvTimeThread;
+	std::thread* _checkRecvTimeThread;
 	typedef ULONG64 LastRecvTime;
 	HashMap<SessionInfo::ID, LastRecvTime> _sessionMap;
 	USE_LOCK;

@@ -139,5 +139,5 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	_monitorClient.Run();
 
 	_hShutDownEvent = CreateEvent(NULL, TRUE, false, NULL);
-	_checkRecvTimeThread = new std::jthread(&LoginServer::CheckLastRecvTime, this);
+	_checkRecvTimeThread = new std::thread(&LoginServer::CheckLastRecvTime, this);
 }
