@@ -14,26 +14,12 @@ private:
 	HashSet<int> _severNoSet;
 	SRWLOCK _serverNoLock;
 	SharedPtr<class DBJobQueue>_pDBJobQ;
-	class MonitorDatas
+	struct MonitorDatas
 	{
-		friend class MonitorServer;
-		enum
-		{
-			MAX_DATA_TYPE = 64,
-		};
-		int _cnt[MAX_DATA_TYPE] = { 0, };
-		float _avg[MAX_DATA_TYPE] = { 0, };
-		int _max[MAX_DATA_TYPE] = { 0, };
-		int _min[MAX_DATA_TYPE];
-		SRWLOCK _dataLocks[MAX_DATA_TYPE];
-		MonitorDatas()
-		{
-			for (int i = 0; i < MAX_DATA_TYPE; i++)
-			{
-				InitializeSRWLock(&_dataLocks[MAX_DATA_TYPE]);
-				_min[i] = INT_MAX;
-			}
-		}
+		HashMap<int, int> _cnt;
+		HashMap<int, int>_avg;
+		HashMap<int, int>_max;
+		HashMap<int, int> _min;
 	};
 	HashMap<int, MonitorDatas*> _monitorDatasMap;
 	virtual bool OnAcceptRequest(const char* ip, USHORT port) override;

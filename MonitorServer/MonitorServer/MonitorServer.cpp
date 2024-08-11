@@ -78,7 +78,12 @@ void MonitorServer::ProcMonitorServerDataUpdate(SessionInfo sessionInfo, BYTE da
         return;
     }
 
-    AcquireSRWLockExclusive(&pMonitorDatas->_dataLocks[dataType]);
+    if (pMonitorDatas->_cnt[dataType] == 0)
+    {
+        pMonitorDatas->_min[dataType] = INT_MAX;
+    }
+
+    // Recv 1회제한 특정 서버에서 오는 패킷 recv처리는 하나의 스레드가 담당-> 락을 잡을 필요가 없다  
     pMonitorDatas->_cnt[dataType]++;
     pMonitorDatas->_avg[dataType] += dataValue;     
     pMonitorDatas->_max[dataType] = max(pMonitorDatas->_max[dataType], dataValue);
@@ -90,9 +95,9 @@ void MonitorServer::ProcMonitorServerDataUpdate(SessionInfo sessionInfo, BYTE da
         pMonitorDatas->_cnt[dataType] = 0;
         pMonitorDatas->_avg[dataType] = 0;
         pMonitorDatas->_max[dataType] = 0;
-        pMonitorDatas->_min[dataType] = INT_MAX;
+        //pMonitorDatas->_min[dataType] = INT_MAX;
     }
-    ReleaseSRWLockExclusive(&pMonitorDatas->_dataLocks[dataType]);
+  
 }
 
 MonitorServer::MonitorServer():IOCPServer("SSMonitorServerSetting.json",false), SSMonitorServerProxy(this),_logDB("SSMonitorServerSetting.json")
