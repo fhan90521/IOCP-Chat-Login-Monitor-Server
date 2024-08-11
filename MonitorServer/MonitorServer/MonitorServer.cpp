@@ -24,7 +24,7 @@ void MonitorServer::OnAccept(SessionInfo sessionInfo)
 
 void MonitorServer::OnDisconnect(SessionInfo sessionInfo)
 {
-    AcquireSRWLockExclusive(&_serverNoLock);
+    AcquireSRWLockExclusive(&_lock);
     auto iter = _serverNoMap.find(sessionInfo.Id());
     if (iter != _serverNoMap.end())
     {
@@ -32,8 +32,9 @@ void MonitorServer::OnDisconnect(SessionInfo sessionInfo)
         _severNoSet.erase(serverNo);
         _serverNoMap.erase(iter);
         delete _monitorDatasMap[serverNo];
+        _monitorDatasMap.erase(serverNo);
     }
-    ReleaseSRWLockExclusive(&_serverNoLock);
+    ReleaseSRWLockExclusive(&_lock);
 }
 
 void MonitorServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
@@ -47,7 +48,7 @@ void MonitorServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 
 void MonitorServer::ProcReqLoginByServer(SessionInfo sessionInfo, int serverNo)
 {
-    AcquireSRWLockExclusive(&_serverNoLock);
+    AcquireSRWLockExclusive(&_lock);
     auto retInsert=_severNoSet.insert(serverNo);
     if (retInsert.second == true)
     {
@@ -59,30 +60,36 @@ void MonitorServer::ProcReqLoginByServer(SessionInfo sessionInfo, int serverNo)
     {
         ResLoginSS(sessionInfo, dfMONITOR_TOOL_LOGIN_ERR_NOSERVER,true);
     }
-    ReleaseSRWLockExclusive(&_serverNoLock);
+    ReleaseSRWLockExclusive(&_lock);
 }
 
 void MonitorServer::ProcMonitorServerDataUpdate(SessionInfo sessionInfo, BYTE dataType, int dataValue, int timeStamp)
 {
     int serverNo;
-    AcquireSRWLockShared(&_serverNoLock);
-    serverNo = _serverNoMap[sessionInfo.Id()];
-    ReleaseSRWLockShared(&_serverNoLock);
+    MonitorDatas* pMonitorDatas=nullptr;
 
-    _pCSMonitorServer->BroadcastUpdate(serverNo, dataType, dataValue, timeStamp);
-    
-    MonitorDatas* pMonitorDatas=_monitorDatasMap[serverNo];
+    AcquireSRWLockShared(&_lock);
+    auto iter = _serverNoMap.find(sessionInfo.Id());
+    if (iter != _serverNoMap.end())
+    {
+        serverNo = iter->second;
+        pMonitorDatas = _monitorDatasMap[serverNo];
+    }
+    ReleaseSRWLockShared(&_lock);
+
+
     if (pMonitorDatas == nullptr)
     {
         Disconnect(sessionInfo);
         return;
     }
+   
+    _pCSMonitorServer->BroadcastUpdate(serverNo, dataType, dataValue, timeStamp);
 
     if (pMonitorDatas->_cnt[dataType] == 0)
     {
         pMonitorDatas->_min[dataType] = INT_MAX;
     }
-
     // Recv 1회제한 특정 서버에서 오는 패킷 recv처리는 하나의 스레드가 담당-> 락을 잡을 필요가 없다  
     pMonitorDatas->_cnt[dataType]++;
     pMonitorDatas->_avg[dataType] += dataValue;     
@@ -102,7 +109,7 @@ void MonitorServer::ProcMonitorServerDataUpdate(SessionInfo sessionInfo, BYTE da
 
 MonitorServer::MonitorServer():IOCPServer("SSMonitorServerSetting.json",false), SSMonitorServerProxy(this),_logDB("SSMonitorServerSetting.json")
 {
-    InitializeSRWLock(&_serverNoLock);
+    InitializeSRWLock(&_lock);
     _pCSMonitorServer = new CSMonitorServer;
     _pCSMonitorServer->Run();
 }

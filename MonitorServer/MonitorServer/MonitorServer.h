@@ -12,7 +12,7 @@ private:
 	class CSMonitorServer* _pCSMonitorServer = nullptr;
 	HashMap<SessionInfo::ID,int> _serverNoMap;
 	HashSet<int> _severNoSet;
-	SRWLOCK _serverNoLock;
+	SRWLOCK _lock;
 	SharedPtr<class DBJobQueue>_pDBJobQ;
 	struct MonitorDatas
 	{
