@@ -7,6 +7,32 @@
 #include "Log.h"
 #include "LoginDBJobQueue.h"
 #include "MakeShared.h"
+const Array<WCHAR, 16>& LoginServer::GetChatServerIp()
+{
+	return _chatServerIp;
+}
+USHORT LoginServer::GetChatServerPort()
+{
+	return _chatServerPort;
+}
+const Array<WCHAR, 16>& LoginServer::GetGameServerIp()
+{
+	return _gameServerIp;
+}
+USHORT LoginServer::GetGameServerPort()
+{
+	return _gameServerPort;
+}
+void LoginServer::IncrementLoginReqCnt()
+{
+	InterlockedIncrement(&_procLoginReqCnt);
+}
+LONG LoginServer::GetProcLoginReqCnt()
+{
+	int ret = _procLoginReqCnt;
+	InterlockedExchange(&_procLoginReqCnt, 0);
+	return ret;	
+}
 void LoginServer::CheckLastRecvTime()
 {
 	while (1)
@@ -74,7 +100,7 @@ void LoginServer::Run()
 void LoginServer::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
 	int index = (_dbQueueIndex++) % _dbJobQueues.size();
-	_dbJobQueues[index]->DoAsync(&LoginDBJobQueue::ProcReqLogin, this, sessionInfo, accountNo, sessionKey);
+	_dbJobQueues[index]->DoAsync(&LoginDBJobQueue::ProcReqLogin,sessionInfo, accountNo, sessionKey);
 }
 
 void LoginServer::Monitor()
@@ -121,17 +147,17 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	std::string chatServerIp = serverSetValues["ChatServerIp"].GetString();
 	std::wstring wChatServerIp;
 	wChatServerIp.assign(chatServerIp.begin(), chatServerIp.end());
-	std::copy(wChatServerIp.begin(), wChatServerIp.end(), _chatServerIpArr.begin());
+	std::copy(wChatServerIp.begin(), wChatServerIp.end(), _chatServerIp.begin());
 
 	std::string gameServerIp = serverSetValues["GameServerIp"].GetString();
 	std::wstring wGameServerIp;
 	wGameServerIp.assign(gameServerIp.begin(), gameServerIp.end());
-	std::copy(wGameServerIp.begin(), wGameServerIp.end(), _gameServerIpArr.begin());
+	std::copy(wGameServerIp.begin(), wGameServerIp.end(), _gameServerIp.begin());
 
 	_dbWorkThreadPool = new WorkThreadPool(_dbConcurrentWorkThreadCnt, _dbConcurrentWorkThreadCnt *2);
 	for (int i = 0; i < _dbConcurrentWorkThreadCnt; i++)
 	{
-		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(_dbWorkThreadPool->GetCompletionPortHandle()));
+		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(this,_dbWorkThreadPool->GetCompletionPortHandle()));
 	}
 	
 	_chatServerPort = serverSetValues["ChatServerPort"].GetInt();

@@ -94,7 +94,7 @@ void ChatRoom::OnLeaveRoomSystem(SessionInfo sessionInfo)
 ChatRoom::ChatRoom(ChatServer* pServer):Room(pServer->GetCompletionPortHandle()),_pServer(pServer)
 {
 }
-void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName)
+void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName)
 {
     auto iter = _chatPlayerMap.find(accountNo);
     if (iter != _chatPlayerMap.end())
@@ -128,7 +128,7 @@ void ChatRoom::ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 2
         }
     }
 }
-void ChatRoom::ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char> msg)
+void ChatRoom::ReqMessage(SessionInfo sessionInfo, INT64 accountNo, String& chatMessage)
 {
     auto iter = _chatPlayerMap.find(accountNo);
     if (iter != _chatPlayerMap.end())
@@ -137,7 +137,7 @@ void ChatRoom::ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>
         _ReqMsgCnt++;
         List<SessionInfo> sessionInfoList;
         GetSessionInfoAroundSector(sessionInfoList, pPlayer->sectorX, pPlayer->sectorY);
-        _pServer->ChatResMessage(sessionInfoList, pPlayer->accountNo, pPlayer->id, pPlayer->nickName, msg);
+        _pServer->ChatResMessage(sessionInfoList, pPlayer->accountNo, pPlayer->id, pPlayer->nickName, chatMessage);
         _SendMsgCnt += sessionInfoList.size();
     }
     else

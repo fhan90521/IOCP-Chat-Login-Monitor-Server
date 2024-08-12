@@ -1,7 +1,6 @@
-#include  "SSMonitorClientStub.h"
- #include <iostream>
+#include "SSMonitorClientStub.h"
+#include "IOCPServer.h"
 #include "Log.h"
-using namespace std;
 bool SSMonitorClientStub::PacketProcReqLoginByServer(CRecvBuffer& buf)
 {
 	int serverNo;
@@ -11,12 +10,13 @@ bool SSMonitorClientStub::PacketProcReqLoginByServer(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByServer error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByServer error\n");
+		return false;
 	}
 	ProcReqLoginByServer(serverNo);
 	return true;
 }
+
 bool SSMonitorClientStub::PacketProcMonitorServerDataUpdate(CRecvBuffer& buf)
 {
 	BYTE dataType;
@@ -28,12 +28,13 @@ bool SSMonitorClientStub::PacketProcMonitorServerDataUpdate(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorServerDataUpdate error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorServerDataUpdate error\n");
+		return false;
 	}
 	ProcMonitorServerDataUpdate(dataType, dataValue, timeStamp);
 	return true;
 }
+
 bool SSMonitorClientStub::PacketProcResLoginSS(CRecvBuffer& buf)
 {
 	BYTE status;
@@ -43,8 +44,8 @@ bool SSMonitorClientStub::PacketProcResLoginSS(CRecvBuffer& buf)
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginSS error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginSS error\n");
+		return false;
 	}
 	ProcResLoginSS(status);
 	return true;
@@ -55,11 +56,11 @@ bool SSMonitorClientStub::PacketProc(CRecvBuffer& buf)
 	short packetType;
 	try
 	{
-		buf>>packetType;
+		buf >> packetType;
 	}
 	catch(int remainSize)
 	{
-		 return false;
+		return false;
 	}
 	switch(packetType)
 	{
@@ -80,9 +81,7 @@ bool SSMonitorClientStub::PacketProc(CRecvBuffer& buf)
 	}
 	default:
 	{
-		Log::LogOnFile(Log::DEBUG_LEVEL,"Packet Type not exist error\n");
 		return false;
-		break;
 	}
 	}
 }

@@ -1,4 +1,4 @@
-#include  "SSMonitorServerProxy.h"
+#include "SSMonitorServerProxy.h"
 #include "SSMonitorPKT_TYPE.h"
 void SSMonitorServerProxy::ReqLoginByServer(SessionInfo sessionInfo, int serverNo, bool bDisconnect)
 {
@@ -14,7 +14,7 @@ void SSMonitorServerProxy::ReqLoginByServer(SessionInfo sessionInfo, int serverN
 	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void SSMonitorServerProxy::ReqLoginByServer(List<SessionInfo>& sessionInfoList, int serverNo, bool bDisconnect)
+void SSMonitorServerProxy::ReqLoginByServer(const List<SessionInfo>& sessionInfoList, int serverNo, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -45,7 +45,7 @@ void SSMonitorServerProxy::MonitorServerDataUpdate(SessionInfo sessionInfo, BYTE
 	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void SSMonitorServerProxy::MonitorServerDataUpdate(List<SessionInfo>& sessionInfoList, BYTE dataType, int dataValue, int timeStamp, bool bDisconnect)
+void SSMonitorServerProxy::MonitorServerDataUpdate(const List<SessionInfo>& sessionInfoList, BYTE dataType, int dataValue, int timeStamp, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -76,7 +76,7 @@ void SSMonitorServerProxy::ResLoginSS(SessionInfo sessionInfo, BYTE status, bool
 	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void SSMonitorServerProxy::ResLoginSS(List<SessionInfo>& sessionInfoList, BYTE status, bool bDisconnect)
+void SSMonitorServerProxy::ResLoginSS(const List<SessionInfo>& sessionInfoList, BYTE status, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();

@@ -1,7 +1,7 @@
 #include "LoginDBJobQueue.h"
 #include "LoginServer.h"
 #include "CommonProtocol.h"
-void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo sessionInfo, INT64 accountNo, Array<char, 64> sessionKey)
+void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
 	MYSQL* DBconnection = _accountDB.GetConnection();
 	char getAccountInfoQuery[512];
@@ -26,12 +26,12 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 		MultiByteToWideChar(CP_ACP, 0, sql_row[3], strlen(sql_row[3]) + 1, userNick.data(), 20);
 		mysql_free_result(sql_result);
 	}
-	_loginTokenRedis.GetRedisConnection()->setex(std::to_string(accountNo), 30, sessionKey.data(), [loginServer, sessionInfo,accountNo ,userId, userNick](cpp_redis::reply& reply) mutable
+	_loginTokenRedis.GetRedisConnection()->setex(std::to_string(accountNo), 30, sessionKey.data(), [this, sessionInfo,accountNo ,userId, userNick](cpp_redis::reply& reply) mutable
 		{
 			if (reply.is_simple_string() == true)
 			{
-				loginServer->ResLogin(sessionInfo, accountNo, dfLOGIN_STATUS_OK, userId, userNick, loginServer->_gameServerIpArr, loginServer->_gameServerPort, loginServer->_chatServerIpArr, loginServer->_chatServerPort, true);
-				InterlockedIncrement(&loginServer->_procLoginReqCnt);
+				_loginServer->ResLogin(sessionInfo, accountNo, dfLOGIN_STATUS_OK, userId, userNick, _loginServer->GetGameServerIp(), _loginServer->GetGameServerPort(), _loginServer->GetChatServerIp(), _loginServer->GetChatServerPort(), true);
+				_loginServer->IncrementLoginReqCnt();
 			}
 			else
 			{
@@ -42,6 +42,11 @@ void LoginDBJobQueue::ProcReqLogin(LoginServer* loginServer ,SessionInfo session
 	_loginTokenRedis.GetRedisConnection()->sync_commit();
 }
 
-LoginDBJobQueue::LoginDBJobQueue(HANDLE hCompletionPort): JobQueue(hCompletionPort) , _accountDB("LoginServerSetting.json"), _loginTokenRedis("LoginServerSetting.json")
+LoginDBJobQueue::LoginDBJobQueue(class LoginServer* loginServer, HANDLE hCompletionPort):
+	_loginServer(loginServer),
+	JobQueue(hCompletionPort) ,
+	_accountDB("LoginServerSetting.json"),
+	_loginTokenRedis("LoginServerSetting.json")
 {
+
 }

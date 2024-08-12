@@ -76,17 +76,17 @@ bool ChatServerStub::PacketProcChatResSectorMove(SessionInfo sessionInfo, CRecvB
 bool ChatServerStub::PacketProcChatReqMessage(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	INT64 accountNo;
-	Vector<char> msg;
+	String chatMessage;
 	try
 	{
-		buf >> accountNo >> msg;
+		buf >> accountNo >> chatMessage;
 	}
 	catch(int useSize)
 	{
 		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatReqMessage error\n");
 		return false;
 	}
-	ProcChatReqMessage(sessionInfo, accountNo, msg);
+	ProcChatReqMessage(sessionInfo, accountNo, chatMessage);
 	return true;
 }
 
@@ -95,17 +95,17 @@ bool ChatServerStub::PacketProcChatResMessage(SessionInfo sessionInfo, CRecvBuff
 	INT64 accountNo;
 	Array<WCHAR,20> id;
 	Array<WCHAR,20> nickName;
-	Vector<char> msg;
+	String chatMessage;
 	try
 	{
-		buf >> accountNo >> id >> nickName >> msg;
+		buf >> accountNo >> id >> nickName >> chatMessage;
 	}
 	catch(int useSize)
 	{
 		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcChatResMessage error\n");
 		return false;
 	}
-	ProcChatResMessage(sessionInfo, accountNo, id, nickName, msg);
+	ProcChatResMessage(sessionInfo, accountNo, id, nickName, chatMessage);
 	return true;
 }
 

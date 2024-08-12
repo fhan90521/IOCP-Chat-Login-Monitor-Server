@@ -27,7 +27,7 @@ private:
 
 	virtual void ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName, Array<char, 64>& sessionKey) override;
 	virtual void ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD sectorX, WORD sectorY) override;
-	virtual void ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg) override;
+	virtual void ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, String& chatMessage) override;
 	virtual void ProcChatReqHeartbeat(SessionInfo sessionInfo) override;
 	PerformanceMonitor _monitor;
 

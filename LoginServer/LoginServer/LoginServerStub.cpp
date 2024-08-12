@@ -1,8 +1,6 @@
-#include  "LoginServerStub.h"
- #include "IOCPServer.h"
-#include <iostream>
+#include "LoginServerStub.h"
+#include "IOCPServer.h"
 #include "Log.h"
-using namespace std;
 bool LoginServerStub::PacketProcReqLogin(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	INT64 accountNo;
@@ -13,12 +11,13 @@ bool LoginServerStub::PacketProcReqLogin(SessionInfo sessionInfo, CRecvBuffer& b
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLogin error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLogin error\n");
+		return false;
 	}
-	ProcReqLogin( sessionInfo , accountNo, sessionKey);
+	ProcReqLogin(sessionInfo, accountNo, sessionKey);
 	return true;
 }
+
 bool LoginServerStub::PacketProcResLogin(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	INT64 accountNo;
@@ -35,10 +34,10 @@ bool LoginServerStub::PacketProcResLogin(SessionInfo sessionInfo, CRecvBuffer& b
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLogin error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLogin error\n");
+		return false;
 	}
-	ProcResLogin( sessionInfo , accountNo, status, id, nickName, gameServerIp, gameServerPort, chatServerIp, chatServerPort);
+	ProcResLogin(sessionInfo, accountNo, status, id, nickName, gameServerIp, gameServerPort, chatServerIp, chatServerPort);
 	return true;
 }
 
@@ -47,29 +46,27 @@ bool LoginServerStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
 	short packetType;
 	try
 	{
-		buf>>packetType;
+		buf >> packetType;
 	}
 	catch(int remainSize)
 	{
-		 return false;
+		return false;
 	}
 	switch(packetType)
 	{
 	case PKT_TYPE_ReqLogin:
 	{
-		return PacketProcReqLogin(sessionInfo,buf);
+		return PacketProcReqLogin(sessionInfo, buf);
 		break;
 	}
 	case PKT_TYPE_ResLogin:
 	{
-		return PacketProcResLogin(sessionInfo,buf);
+		return PacketProcResLogin(sessionInfo, buf);
 		break;
 	}
 	default:
 	{
-		Log::LogOnFile(Log::DEBUG_LEVEL,"Packet Type not exist error\n");
 		return false;
-		break;
 	}
 	}
 }

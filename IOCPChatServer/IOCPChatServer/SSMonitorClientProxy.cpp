@@ -1,4 +1,4 @@
-#include  "SSMonitorClientProxy.h"
+#include "SSMonitorClientProxy.h"
 #include "SSMonitorPKT_TYPE.h"
 void SSMonitorClientProxy::ReqLoginByServer(int serverNo, bool bDisconnect)
 {

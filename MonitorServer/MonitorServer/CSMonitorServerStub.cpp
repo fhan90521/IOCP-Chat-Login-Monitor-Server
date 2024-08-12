@@ -1,8 +1,6 @@
-#include  "CSMonitorServerStub.h"
- #include "IOCPServer.h"
-#include <iostream>
+#include "CSMonitorServerStub.h"
+#include "IOCPServer.h"
 #include "Log.h"
-using namespace std;
 bool CSMonitorServerStub::PacketProcReqLoginByMonitorTool(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	Array<char,32> loginSessionKey;
@@ -12,12 +10,13 @@ bool CSMonitorServerStub::PacketProcReqLoginByMonitorTool(SessionInfo sessionInf
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByMonitorTool error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByMonitorTool error\n");
+		return false;
 	}
-	ProcReqLoginByMonitorTool( sessionInfo , loginSessionKey);
+	ProcReqLoginByMonitorTool(sessionInfo, loginSessionKey);
 	return true;
 }
+
 bool CSMonitorServerStub::PacketProcResLoginCS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	BYTE status;
@@ -27,12 +26,13 @@ bool CSMonitorServerStub::PacketProcResLoginCS(SessionInfo sessionInfo, CRecvBuf
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginCS error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginCS error\n");
+		return false;
 	}
-	ProcResLoginCS( sessionInfo , status);
+	ProcResLoginCS(sessionInfo, status);
 	return true;
 }
+
 bool CSMonitorServerStub::PacketProcMonitorToolDataUpdate(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	BYTE serverNo;
@@ -45,10 +45,10 @@ bool CSMonitorServerStub::PacketProcMonitorToolDataUpdate(SessionInfo sessionInf
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorToolDataUpdate error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorToolDataUpdate error\n");
+		return false;
 	}
-	ProcMonitorToolDataUpdate( sessionInfo , serverNo, dataType, dataValue, timeStamp);
+	ProcMonitorToolDataUpdate(sessionInfo, serverNo, dataType, dataValue, timeStamp);
 	return true;
 }
 
@@ -57,34 +57,32 @@ bool CSMonitorServerStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
 	short packetType;
 	try
 	{
-		buf>>packetType;
+		buf >> packetType;
 	}
 	catch(int remainSize)
 	{
-		 return false;
+		return false;
 	}
 	switch(packetType)
 	{
 	case PKT_TYPE_ReqLoginByMonitorTool:
 	{
-		return PacketProcReqLoginByMonitorTool(sessionInfo,buf);
+		return PacketProcReqLoginByMonitorTool(sessionInfo, buf);
 		break;
 	}
 	case PKT_TYPE_ResLoginCS:
 	{
-		return PacketProcResLoginCS(sessionInfo,buf);
+		return PacketProcResLoginCS(sessionInfo, buf);
 		break;
 	}
 	case PKT_TYPE_MonitorToolDataUpdate:
 	{
-		return PacketProcMonitorToolDataUpdate(sessionInfo,buf);
+		return PacketProcMonitorToolDataUpdate(sessionInfo, buf);
 		break;
 	}
 	default:
 	{
-		Log::LogOnFile(Log::DEBUG_LEVEL,"Packet Type not exist error\n");
 		return false;
-		break;
 	}
 	}
 }

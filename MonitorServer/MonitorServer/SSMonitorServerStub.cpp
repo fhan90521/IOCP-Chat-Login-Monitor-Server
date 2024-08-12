@@ -1,8 +1,6 @@
-#include  "SSMonitorServerStub.h"
- #include "IOCPServer.h"
-#include <iostream>
+#include "SSMonitorServerStub.h"
+#include "IOCPServer.h"
 #include "Log.h"
-using namespace std;
 bool SSMonitorServerStub::PacketProcReqLoginByServer(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	int serverNo;
@@ -12,12 +10,13 @@ bool SSMonitorServerStub::PacketProcReqLoginByServer(SessionInfo sessionInfo, CR
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByServer error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcReqLoginByServer error\n");
+		return false;
 	}
-	ProcReqLoginByServer( sessionInfo , serverNo);
+	ProcReqLoginByServer(sessionInfo, serverNo);
 	return true;
 }
+
 bool SSMonitorServerStub::PacketProcMonitorServerDataUpdate(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	BYTE dataType;
@@ -29,12 +28,13 @@ bool SSMonitorServerStub::PacketProcMonitorServerDataUpdate(SessionInfo sessionI
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorServerDataUpdate error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcMonitorServerDataUpdate error\n");
+		return false;
 	}
-	ProcMonitorServerDataUpdate( sessionInfo , dataType, dataValue, timeStamp);
+	ProcMonitorServerDataUpdate(sessionInfo, dataType, dataValue, timeStamp);
 	return true;
 }
+
 bool SSMonitorServerStub::PacketProcResLoginSS(SessionInfo sessionInfo, CRecvBuffer& buf)
 {
 	BYTE status;
@@ -44,10 +44,10 @@ bool SSMonitorServerStub::PacketProcResLoginSS(SessionInfo sessionInfo, CRecvBuf
 	}
 	catch(int useSize)
 	{
-		 Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginSS error\n");
-		 return false;
+		Log::LogOnFile(Log::DEBUG_LEVEL, "PacketProcResLoginSS error\n");
+		return false;
 	}
-	ProcResLoginSS( sessionInfo , status);
+	ProcResLoginSS(sessionInfo, status);
 	return true;
 }
 
@@ -56,34 +56,32 @@ bool SSMonitorServerStub::PacketProc(SessionInfo sessionInfo, CRecvBuffer& buf)
 	short packetType;
 	try
 	{
-		buf>>packetType;
+		buf >> packetType;
 	}
 	catch(int remainSize)
 	{
-		 return false;
+		return false;
 	}
 	switch(packetType)
 	{
 	case PKT_TYPE_ReqLoginByServer:
 	{
-		return PacketProcReqLoginByServer(sessionInfo,buf);
+		return PacketProcReqLoginByServer(sessionInfo, buf);
 		break;
 	}
 	case PKT_TYPE_MonitorServerDataUpdate:
 	{
-		return PacketProcMonitorServerDataUpdate(sessionInfo,buf);
+		return PacketProcMonitorServerDataUpdate(sessionInfo, buf);
 		break;
 	}
 	case PKT_TYPE_ResLoginSS:
 	{
-		return PacketProcResLoginSS(sessionInfo,buf);
+		return PacketProcResLoginSS(sessionInfo, buf);
 		break;
 	}
 	default:
 	{
-		Log::LogOnFile(Log::DEBUG_LEVEL,"Packet Type not exist error\n");
 		return false;
-		break;
 	}
 	}
 }

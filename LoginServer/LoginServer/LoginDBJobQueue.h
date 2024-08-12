@@ -5,8 +5,9 @@
 class LoginDBJobQueue : public JobQueue
 {
 public:
+	class LoginServer* _loginServer=nullptr;
 	MYSQLHelper _accountDB;
 	RedisHelper _loginTokenRedis;
-	void ProcReqLogin(class LoginServer* loginServer, SessionInfo sessionInfo, INT64 accountNo, Array<char, 64> sessionKey);
-	LoginDBJobQueue(HANDLE hCompletionPort);
+	void ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey);
+	LoginDBJobQueue(class LoginServer* loginServer, HANDLE hCompletionPort);
 };

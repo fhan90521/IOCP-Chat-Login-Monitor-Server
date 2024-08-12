@@ -68,12 +68,11 @@ RPC 1
 	//		WORD	Type
 	//
 	//		INT64	AccountNo
-	//		WORD	MessageLen
-	//		WCHAR	Message[MessageLen / 2]		// null 미포함
+	//		String chatMessage
 	//	}
 	//
 	//------------------------------------------------------------
-	ChatReqMessage(INT64 accountNo, Vector<char> msg)
+	ChatReqMessage(INT64 accountNo, String chatMessage)
 
 	//------------------------------------------------------------
 	// 채팅서버 채팅보내기 응답  (다른 클라가 보낸 채팅도 이걸로 받음)
@@ -85,12 +84,11 @@ RPC 1
 	//		WCHAR	ID[20]						// null 포함
 	//		WCHAR	Nickname[20]				// null 포함
 	//		
-	//		WORD	MessageLen
-	//		WCHAR	Message[MessageLen / 2]		// null 미포함
+	//		String chatMessage
 	//	}
 	//
 	//------------------------------------------------------------
-	ChatResMessage(INT64 accountNo, Array<WCHAR>[20] id, Array<WCHAR>[20] nickName, Vector<char> msg)
+	ChatResMessage(INT64 accountNo, Array<WCHAR>[20] id, Array<WCHAR>[20] nickName, String chatMessage)
 
 	//------------------------------------------------------------
 	// 하트비트

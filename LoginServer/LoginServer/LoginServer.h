@@ -10,13 +10,20 @@
 #include <thread>
 class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
 {
-public:
-	Array<WCHAR, 16>_chatServerIpArr;
+private:
+	Array<WCHAR, 16>_chatServerIp;
 	USHORT _chatServerPort;
-	Array<WCHAR, 16> _gameServerIpArr;
+	Array<WCHAR, 16> _gameServerIp;
 	USHORT _gameServerPort;
-	LONG64 _onConnectCnt=0;
+	LONG64 _onConnectCnt = 0;
 	LONG _procLoginReqCnt = 0;
+	LONG GetProcLoginReqCnt();
+public:
+	const Array<WCHAR, 16>& GetChatServerIp();
+	USHORT GetChatServerPort();
+	const Array<WCHAR, 16>& GetGameServerIp();
+	USHORT GetGameServerPort();
+	void IncrementLoginReqCnt();
 private:
 	enum
 	{
@@ -42,12 +49,6 @@ private:
 	PerformanceMonitor _monitor;
 	SSMonitorClient _monitorClient;
 public:
-	LONG GetProcLoginReqCnt()
-	{
-		int ret = _procLoginReqCnt;
-		InterlockedExchange(&_procLoginReqCnt, 0);
-		return ret;
-	}
 	virtual void Run() override;
 	void Monitor();
 	LoginServer();

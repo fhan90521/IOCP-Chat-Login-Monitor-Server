@@ -1,6 +1,6 @@
-#include  "CSMonitorServerProxy.h"
+#include "CSMonitorServerProxy.h"
 #include "CSMonitorPKT_TYPE.h"
-void CSMonitorServerProxy::ReqLoginByMonitorTool(SessionInfo sessionInfo, Array<char,32>& loginSessionKey, bool bDisconnect)
+void CSMonitorServerProxy::ReqLoginByMonitorTool(SessionInfo sessionInfo, const Array<char,32>& loginSessionKey, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -14,7 +14,7 @@ void CSMonitorServerProxy::ReqLoginByMonitorTool(SessionInfo sessionInfo, Array<
 	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void CSMonitorServerProxy::ReqLoginByMonitorTool(List<SessionInfo>& sessionInfoList, Array<char,32>& loginSessionKey, bool bDisconnect)
+void CSMonitorServerProxy::ReqLoginByMonitorTool(const List<SessionInfo>& sessionInfoList, const Array<char,32>& loginSessionKey, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -45,7 +45,7 @@ void CSMonitorServerProxy::ResLoginCS(SessionInfo sessionInfo, BYTE status, bool
 	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void CSMonitorServerProxy::ResLoginCS(List<SessionInfo>& sessionInfoList, BYTE status, bool bDisconnect)
+void CSMonitorServerProxy::ResLoginCS(const List<SessionInfo>& sessionInfoList, BYTE status, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();
@@ -76,7 +76,7 @@ void CSMonitorServerProxy::MonitorToolDataUpdate(SessionInfo sessionInfo, BYTE s
 	_pServer->Unicast(sessionInfo, pBuf, bDisconnect);
 	pBuf->DecrementRefCnt();
 }
-void CSMonitorServerProxy::MonitorToolDataUpdate(List<SessionInfo>& sessionInfoList, BYTE serverNo, BYTE dataType, int dataValue, int timeStamp, bool bDisconnect)
+void CSMonitorServerProxy::MonitorToolDataUpdate(const List<SessionInfo>& sessionInfoList, BYTE serverNo, BYTE dataType, int dataValue, int timeStamp, bool bDisconnect)
 {
 	CSendBuffer* pBuf = CSendBuffer::Alloc();
 	pBuf->IncrementRefCnt();

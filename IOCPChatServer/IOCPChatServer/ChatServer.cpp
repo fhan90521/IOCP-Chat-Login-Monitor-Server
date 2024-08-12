@@ -30,7 +30,7 @@ void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
 
 void ChatServer::ProcChatReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName, Array<char, 64>& sessionKey)
 {  
-    _loginTokenRedis.GetRedisConnection()->get(std::to_string(accountNo), [this, sessionInfo, accountNo, id, nickName, sessionKey](cpp_redis::reply& reply) {
+    _loginTokenRedis.GetRedisConnection()->get(std::to_string(accountNo), [this, sessionInfo, accountNo, id, nickName, sessionKey](cpp_redis::reply& reply) mutable {
         if (reply.is_bulk_string() && memcmp(sessionKey.data(), reply.as_string().data(), 64) == 0)
         {
             _chatRoom->DoAsync(&ChatRoom::ReqLogin, sessionInfo, accountNo, id, nickName);
@@ -48,9 +48,9 @@ void ChatServer::ProcChatReqSectorMove(SessionInfo sessionInfo, INT64 accountNo,
     _chatRoom->DoAsync(&ChatRoom::SectorMove, sessionInfo, accountNo, sectorX , sectorY );
 }
 
-void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char>& msg)
+void ChatServer::ProcChatReqMessage(SessionInfo sessionInfo, INT64 accountNo, String& chatMessage)
 {
-    _chatRoom->DoAsync(&ChatRoom::ReqMessage, sessionInfo, accountNo, msg);
+    _chatRoom->DoAsync(&ChatRoom::ReqMessage, sessionInfo, accountNo, chatMessage);
 }
 
 void ChatServer::ProcChatReqHeartbeat(SessionInfo sessionInfo)
@@ -79,7 +79,7 @@ SendMessageTps: {}
 ReqMsgTps: {}
 ResMsgTps: {}
 
-)", GetConnectingSessionCnt(), _chatRoom->GetJobQueueLen(), GetAllocatingCnt<ChatPlayer>(), _chatRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _chatRoom->GetReqMsgCnt(), _chatRoom->GetSendMsgCnt());
+)", GetConnectingSessionCnt(), _chatRoom->GetJobQueueLen(), GlobalObjectPool<ChatPlayer >::GetAllocatingCnt(), _chatRoom->GetPlayerCnt(), bufAllocCnt, _onConnectCnt, GetAcceptCnt(), ProcessJobCnt,GetRecvCnt(), GetSendCnt(), _chatRoom->GetReqMsgCnt(), _chatRoom->GetSendMsgCnt());
     _monitor.PrintMonitorData();
     time_t currentTime;
     time(&currentTime);

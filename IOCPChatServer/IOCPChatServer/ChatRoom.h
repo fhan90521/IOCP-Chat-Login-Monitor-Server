@@ -24,8 +24,8 @@ private:
 public:
 	void HeartBeatCS(SessionInfo sessionInfo);
 	ChatRoom(class ChatServer* pServer);
-	void ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20> id, Array<WCHAR, 20> nickName);
-	void ReqMessage(SessionInfo sessionInfo, INT64 accountNo, Vector<char> msg);
+	void ReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<WCHAR, 20>& id, Array<WCHAR, 20>& nickName);
+	void ReqMessage(SessionInfo sessionInfo, INT64 accountNo, String& chatMessage);
 	void SectorMove(SessionInfo sessionInfo, INT64 accountNo, WORD nextX, WORD nextY);
 	int GetPlayerCnt() { return _playerCnt; }
 	int GetReqMsgCnt()
