@@ -32,7 +32,7 @@ private:
 	PerformanceMonitor _monitor;
 
 public:
-	RoomSystem _chatRoomSystem;
+	class ChatRoomSystem* _chatRoomSystem=nullptr;
 	int _chatRoomID = 0;
 	SharedPtr<class ChatRoom> _chatRoom = nullptr;
 	DWORD _onConnectCnt = 0;

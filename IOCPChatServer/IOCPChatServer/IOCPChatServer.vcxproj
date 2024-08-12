@@ -175,6 +175,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ChatRoom.cpp" />
+    <ClCompile Include="ChatRoomSystem.cpp" />
     <ClCompile Include="ChatServer.cpp" />
     <ClCompile Include="ChatServerProxy.cpp" />
     <ClCompile Include="ChatServerStub.cpp" />
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClInclude Include="ChatPKT_TYPE.h" />
     <ClInclude Include="ChatRoom.h" />
+    <ClInclude Include="ChatRoomSystem.h" />
     <ClInclude Include="ChatServer.h" />
     <ClInclude Include="ChatServerProxy.h" />
     <ClInclude Include="ChatServerStub.h" />

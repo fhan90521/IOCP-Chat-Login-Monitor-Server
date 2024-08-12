@@ -1,9 +1,10 @@
 #include "ChatServer.h"
 #include "ChatRoom.h"
 #include "MonitorProtocol.h"
+#include "ChatRoomSystem.h"
+#include "MakeShared.h"
 #include <iostream>
 #include <format>
-#include <MakeShared.h>
 bool ChatServer::OnAcceptRequest(const char* ip, USHORT port)
 {
     return true;
@@ -12,12 +13,12 @@ bool ChatServer::OnAcceptRequest(const char* ip, USHORT port)
 void ChatServer::OnAccept(SessionInfo sessionInfo)
 {
     _onConnectCnt++;
-    _chatRoomSystem.EnterRoomSystem(sessionInfo, _chatRoomID);
+    _chatRoomSystem->EnterRoomSystem(sessionInfo, _chatRoomID);
 }
 
 void ChatServer::OnDisconnect(SessionInfo sessionInfo)
 {
-    _chatRoomSystem.LeaveRoomSystem(sessionInfo);
+    _chatRoomSystem->LeaveRoomSystem(sessionInfo);
 }
 
 void ChatServer::OnRecv(SessionInfo sessionInfo, CRecvBuffer& buf)
@@ -101,18 +102,20 @@ ResMsgTps: {}
     }
 }
 
-ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"), _loginTokenRedis("ChatServerSetting.json"),_chatRoomSystem(this)
+ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.json"), _loginTokenRedis("ChatServerSetting.json")
 {
+    _chatRoomSystem = new ChatRoomSystem(this);
     _chatRoom = MakeShared<ChatRoom>(this);
-    _chatRoomID =_chatRoomSystem.RegisterRoom(_chatRoom);
+    _chatRoomID =_chatRoomSystem->RegisterRoom(_chatRoom);
     _monitor.AddInterface(BIND_IP);
     _monitorClient.Run();
 }
 
 ChatServer::~ChatServer()
 {
+    _chatRoomSystem->DeregisterRoom(_chatRoomID);
+    delete _chatRoomSystem;
     CloseServer();
-    _chatRoomSystem.DeregisterRoom(_chatRoomID);
 }
 
 void ChatServer::Run()

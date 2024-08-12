@@ -25,6 +25,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Chat</Filter>
     </ClCompile>
+    <ClCompile Include="ChatRoomSystem.cpp">
+      <Filter>Chat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SSMonitorClient.h">
@@ -65,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="ChatPKT_TYPE.h">
       <Filter>RPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatRoomSystem.h">
+      <Filter>Chat</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
