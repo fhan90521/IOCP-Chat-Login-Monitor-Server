@@ -12,7 +12,7 @@
 #include "RedisHelper.h"
 #include "RoomSystem.h"
 #define DEFAULT_SECTOR 55
-class ChatServer : public IOCPServer, public ChatServerStub, public ChatServerProxy
+class ChatServer : public IOCPServer,  public ChatServerProxy , private ChatServerStub
 {
 public:
 	ChatServer();

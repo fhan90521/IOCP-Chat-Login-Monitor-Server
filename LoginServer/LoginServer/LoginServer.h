@@ -8,7 +8,7 @@
 #include <atomic>
 #include "WorkThreadPool.h"
 #include <thread>
-class LoginServer: public IOCPServer, public  LoginServerProxy, public LoginServerStub
+class LoginServer: public IOCPServer, public  LoginServerProxy, private LoginServerStub
 {
 private:
 	Array<WCHAR, 16>_chatServerIp;

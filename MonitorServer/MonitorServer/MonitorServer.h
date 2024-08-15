@@ -5,7 +5,7 @@
 #include "SSMonitorServerStub.h"
 #include "MYSQLHelper.h"
 #include <time.h>
-class MonitorServer :public IOCPServer, public SSMonitorServerProxy, public SSMonitorServerStub
+class MonitorServer :public IOCPServer, public SSMonitorServerProxy, private SSMonitorServerStub
 {
 private:
 	MYSQLHelper _logDB;

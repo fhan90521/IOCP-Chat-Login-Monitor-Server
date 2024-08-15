@@ -2,7 +2,7 @@
 #include "IOCPServer.h"
 #include "CSMonitorServerProxy.h"
 #include "CSMonitorServerStub.h"
-class CSMonitorServer: public IOCPServer, public CSMonitorServerProxy, public CSMonitorServerStub
+class CSMonitorServer: public IOCPServer, public CSMonitorServerProxy, private CSMonitorServerStub
 {
 private:
 	struct SessionStatus

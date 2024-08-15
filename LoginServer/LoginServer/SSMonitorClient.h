@@ -2,7 +2,7 @@
 #include "IOCPClient.h"
 #include "SSMonitorClientProxy.h"
 #include "SSMonitorClientStub.h"
-class SSMonitorClient: public	IOCPClient, public SSMonitorClientProxy, public SSMonitorClientStub
+class SSMonitorClient: public	IOCPClient, public SSMonitorClientProxy, private SSMonitorClientStub
 {
 private:
 	virtual void OnConnect() {};
