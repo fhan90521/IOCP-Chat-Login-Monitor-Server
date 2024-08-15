@@ -2,6 +2,7 @@
 #include "MYSQLHelper.h"
 #include "RedisHelper.h"
 #include "JobQueue.h"
+#include "Session.h"
 class LoginDBJobQueue : public JobQueue
 {
 public:

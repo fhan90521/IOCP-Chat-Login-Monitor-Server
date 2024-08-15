@@ -107,7 +107,7 @@ ChatServer::ChatServer():ChatServerProxy(this),IOCPServer("ChatServerSetting.jso
     _chatRoomSystem = new ChatRoomSystem(this);
     _chatRoom = MakeShared<ChatRoom>(this);
     _chatRoomID =_chatRoomSystem->RegisterRoom(_chatRoom);
-    _monitor.AddInterface(BIND_IP);
+    _monitor.AddInterface(GetBindIp());
     _monitorClient.Run();
 }
 
