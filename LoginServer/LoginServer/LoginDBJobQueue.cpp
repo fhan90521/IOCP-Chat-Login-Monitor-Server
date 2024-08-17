@@ -39,7 +39,7 @@ void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arr
 			}
 		}
 	);
-	_loginTokenRedis.GetRedisConnection()->sync_commit();
+	_loginTokenRedis.GetRedisConnection()->commit();
 }
 
 LoginDBJobQueue::LoginDBJobQueue(class LoginServer* loginServer, HANDLE hCompletionPort):
