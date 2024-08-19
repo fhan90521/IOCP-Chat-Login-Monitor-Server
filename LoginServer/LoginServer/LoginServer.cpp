@@ -154,7 +154,7 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	wGameServerIp.assign(gameServerIp.begin(), gameServerIp.end());
 	std::copy(wGameServerIp.begin(), wGameServerIp.end(), _gameServerIp.begin());
 
-	_dbWorkThreadPool = new WorkThreadPool(_dbConcurrentWorkThreadCnt, _dbConcurrentWorkThreadCnt *2);
+	_dbWorkThreadPool = new WorkThreadPool(_dbConcurrentWorkThreadCnt, _dbConcurrentWorkThreadCnt);
 	for (int i = 0; i < _dbConcurrentWorkThreadCnt; i++)
 	{
 		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(this,_dbWorkThreadPool->GetCompletionPortHandle()));
