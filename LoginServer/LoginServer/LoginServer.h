@@ -38,7 +38,7 @@ private:
 
 	WorkThreadPool* _dbWorkThreadPool;
 	Vector<SharedPtr<class LoginDBJobQueue>> _dbJobQueues;
-	int _dbQueueIndex = 0;
+	unsigned int _dbQueueIndex = 0;
 	int _dbConcurrentWorkThreadCnt = 2;
 	virtual bool OnAcceptRequest(const char* ip, USHORT port) override;
 	virtual void OnAccept(SessionInfo sessionInfo) override;
