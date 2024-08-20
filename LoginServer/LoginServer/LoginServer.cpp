@@ -99,7 +99,7 @@ void LoginServer::Run()
 
 void LoginServer::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
-	int index = (_dbQueueIndex++) % _dbJobQueues.size();
+	unsigned int index = (_dbQueueIndex++) % _dbJobQueues.size();
 	_dbJobQueues[index]->DoAsync(&LoginDBJobQueue::ProcReqLogin,sessionInfo, accountNo, sessionKey);
 }
 
