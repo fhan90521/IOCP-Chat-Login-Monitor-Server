@@ -8,9 +8,13 @@
 #include <atomic>
 #include "WorkThreadPool.h"
 #include <thread>
+#include "MYSQLHelper.h"
+#include "RedisHelper.h"
 class LoginServer: public IOCPServer, public  LoginServerProxy, private LoginServerStub
 {
 private:
+	MYSQLHelper _accountDB;
+	RedisHelper _loginTokenRedis;
 	Array<WCHAR, 16>_chatServerIp;
 	USHORT _chatServerPort;
 	Array<WCHAR, 16> _gameServerIp;

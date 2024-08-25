@@ -1,9 +1,10 @@
 #include "LoginDBJobQueue.h"
 #include "LoginServer.h"
 #include "CommonProtocol.h"
+#include "MYSQLHelper.h"
+#include "RedisHelper.h"
 void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
-	MYSQL* DBconnection = _accountDB.GetConnection();
 	MYSQL_BIND binds[1];
 	bool isNulls[1] = { false };
 	MYSQLHelper::InitBind(binds, isNulls,accountNo);
@@ -18,7 +19,7 @@ void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arr
 	MYSQL_ROW sql_row;
 	Array<WCHAR, 20> userId;
 	Array<WCHAR, 20> userNick;
-	sql_result = mysql_store_result(DBconnection);
+	sql_result = mysql_store_result(_accountDB.GetMYSQL());
 	if (sql_result)
 	{
 		sql_row = mysql_fetch_row(sql_result);
@@ -42,11 +43,11 @@ void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arr
 	_loginTokenRedis.GetRedisConnection()->commit();
 }
 
-LoginDBJobQueue::LoginDBJobQueue(class LoginServer* loginServer, HANDLE hCompletionPort):
+LoginDBJobQueue::LoginDBJobQueue(class LoginServer* loginServer, HANDLE hCompletionPort, MYSQLHelper& accountDB, RedisHelper& loginTokenRedis):
 	_loginServer(loginServer),
 	JobQueue(hCompletionPort) ,
-	_accountDB("LoginServerSetting.json"),
-	_loginTokenRedis("LoginServerSetting.json")
+	_accountDB(accountDB),
+	_loginTokenRedis(loginTokenRedis)
 {
 
 }

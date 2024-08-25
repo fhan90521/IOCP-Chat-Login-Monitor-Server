@@ -140,7 +140,9 @@ LoginServer::~LoginServer()
 	delete _dbWorkThreadPool;
 }
 
-LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json")
+LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSetting.json"),
+_accountDB("LoginServerSetting.json"),
+_loginTokenRedis("LoginServerSetting.json")
 {
 
 	Document serverSetValues = ParseJson("LoginServerSetting.json");
@@ -157,7 +159,7 @@ LoginServer::LoginServer() : LoginServerProxy(this), IOCPServer("LoginServerSett
 	_dbWorkThreadPool = new WorkThreadPool(_dbConcurrentWorkThreadCnt, _dbConcurrentWorkThreadCnt);
 	for (int i = 0; i < _dbConcurrentWorkThreadCnt; i++)
 	{
-		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(this,_dbWorkThreadPool->GetCompletionPortHandle()));
+		_dbJobQueues.push_back(MakeShared<LoginDBJobQueue>(this,_dbWorkThreadPool->GetCompletionPortHandle(),_accountDB, _loginTokenRedis));
 	}
 	
 	_chatServerPort = serverSetValues["ChatServerPort"].GetInt();

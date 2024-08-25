@@ -134,7 +134,6 @@ SendMessageTps: {}
 
 void MonitorServer::LogOnDB(int serverNo, int type, float avr, int min, int max)
 {
-    MYSQL* DBconnection = _logDB.GetConnection();
     MYSQL_BIND binds[5];
     bool isNulls[5] = { false,false,false,false,false };
     MYSQLHelper::InitBind(binds, isNulls, serverNo, type, avr, min, max);
