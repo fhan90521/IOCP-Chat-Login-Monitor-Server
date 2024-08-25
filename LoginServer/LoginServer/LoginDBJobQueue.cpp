@@ -4,16 +4,16 @@
 void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Array<char, 64>& sessionKey)
 {
 	MYSQL* DBconnection = _accountDB.GetConnection();
-	char getAccountInfoQuery[512];
-	MYSQLHelper::MakeQuery(getAccountInfoQuery, 512, "SELECT* FROM accountdb.account where accountno = %d", accountNo);
-	int queryStat = mysql_query(DBconnection, getAccountInfoQuery);
-	if (queryStat != 0)
+	MYSQL_BIND binds[1];
+	bool isNulls[1] = { false };
+	MYSQLHelper::InitBind(binds, isNulls,accountNo);
+	bool retSendQuery=_accountDB.SendQuery( "SELECT* FROM accountdb.account where accountno = ?", binds);
+	if (retSendQuery == false)
 	{
-		Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s\n", mysql_error(DBconnection));
+		Log::LogOnFile(Log::SYSTEM_LEVEL, "SendQuery Error\n");
 		_accountDB.CloseConnection();
 		return;
 	}
-
 	MYSQL_RES* sql_result;
 	MYSQL_ROW sql_row;
 	Array<WCHAR, 20> userId;

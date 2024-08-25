@@ -134,13 +134,15 @@ SendMessageTps: {}
 
 void MonitorServer::LogOnDB(int serverNo, int type, float avr, int min, int max)
 {
-    MYSQL* connection = _logDB.GetConnection();
-    char query[512];
-    MYSQLHelper::MakeQuery(query, 512, "INSERT INTO `logdb`.`monitorlog` (`serverNo`, `type`, `avr`, `min`, `max`) VALUES('%d', '%d', '%f', '%d','%d')", serverNo, type, avr, min, max);
-    int queryStat = mysql_query(connection, query);
-    if (queryStat != 0)
+    MYSQL* DBconnection = _logDB.GetConnection();
+    MYSQL_BIND binds[5];
+    bool isNulls[5] = { false,false,false,false,false };
+    MYSQLHelper::InitBind(binds, isNulls, serverNo, type, avr, min, max);
+    bool retSendQuery = _logDB.SendQuery("INSERT INTO `logdb`.`monitorlog` (`serverNo`, `type`, `avr`, `min`, `max`) VALUES( ? , ? , ? , ? , ?)", binds);
+    if (retSendQuery == false)
     {
-        Log::LogOnFile(Log::SYSTEM_LEVEL, "Mysql query error : %s", mysql_error(connection));
+        Log::LogOnFile(Log::SYSTEM_LEVEL, "SendQuery Error\n");
         _logDB.CloseConnection();
+        return;
     }
 }
