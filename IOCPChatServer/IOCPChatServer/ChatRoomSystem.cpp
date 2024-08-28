@@ -4,6 +4,12 @@ void ChatRoomSystem::OnLeaveByChangingRoomSession(SessionInfo sessionInfo)
 {
 }
 
-ChatRoomSystem::ChatRoomSystem(ChatServer* pServer):RoomSystem(pServer)
+ChatRoomSystem::ChatRoomSystem(class ChatServer* chatServer)
 {
+	_chatServer = chatServer;
+}
+
+void ChatRoomSystem::OnError(SessionInfo sessionInfo, RoomError error)
+{
+	_chatServer->Disconnect(sessionInfo);
 }
