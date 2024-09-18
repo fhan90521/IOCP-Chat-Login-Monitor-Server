@@ -27,7 +27,9 @@ void LoginDBJobQueue::ProcReqLogin(SessionInfo sessionInfo, INT64 accountNo, Arr
 		MultiByteToWideChar(CP_ACP, 0, sql_row[3], strlen(sql_row[3]) + 1, userNick.data(), 20);
 		mysql_free_result(sql_result);
 	}
-	_loginTokenRedis.GetRedisConnection()->setex(std::to_string(accountNo), 30, sessionKey.data(), [this, sessionInfo,accountNo ,userId, userNick](cpp_redis::reply& reply) mutable
+	std::string sessionkeyStr(64,'7');
+	std::copy(sessionKey.begin(), sessionKey.end(), sessionkeyStr.begin());
+	_loginTokenRedis.GetRedisConnection()->setex(std::to_string(accountNo), 30, sessionkeyStr, [this, sessionInfo,accountNo ,userId, userNick](cpp_redis::reply& reply) mutable
 		{
 			if (reply.is_simple_string() == true)
 			{
